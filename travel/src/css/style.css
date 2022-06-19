@@ -1,1 +1,168 @@
 @import url(normalize.css);
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+
+}
+
+.container-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* ----------- HEADER ------------ */
+
+.header {
+    position: relative;
+    z-index: 2;
+}
+
+.header .container {
+    background: rgba(242, 120, 92, 0.7);
+    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0 25px 0;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+}
+
+.header__title {
+  font-family: "Magra";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  color: #ffffff;
+  padding-bottom: 3px;
+}
+
+.header__title::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../img/logo.svg);
+    margin-right: 6px;
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  gap: 42px;
+  margin-left: -30px;
+}
+
+.link {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+/* сделать кнопку инлайн чтобы не было 2 блока со стилями на нее */
+.header__button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  background: #0d606f;
+}
+
+.header__button .btn {
+  padding: 10px 30px;
+  background: transparent;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+/* ----------- MAIN ------------- */
+
+.main {
+  flex: 1 1 auto;
+}
+
+.preview {
+    background: url(../img/bg-1.png);
+    height: 765px;
+    margin-top: -90px;
+    padding-top: 122px;
+}
+
+.preview__container {
+    max-width: 892px;
+}
+
+.preview__title {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 96px;
+  color: #ffffff;
+  margin: 0 0 32px 0;
+}
+
+.preview__subtitle {
+  font-family: "Aleo";
+  font-style: italic;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-bottom: 46px;
+}
+
+.preview__search {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 18px 18px 41px;
+}
+
+.preview__input,
+.preview__input::placeholder {
+  font-family: "Aleo";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  color: #f2785c;
+  background-color: transparent;
+}
+
+.preview__button {
+  display: inline-block;
+  padding: 13.5px 33.5px;
+  background: #0d606f;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+  text-align: center;
+}
