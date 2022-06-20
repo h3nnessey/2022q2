@@ -44,10 +44,10 @@
             <p class="preview__subtitle">Receive personalized recommendations for countries, hotels,
               activities
               and more</p>
-            <div class="preview__search">
+            <form class="preview__search" action="#">
               <input type="text" class="preview__input" placeholder="What would you like to do?">
-              <button class="preview__button">Start Planning</button>
-            </div>
+              <button type="submit" class="preview__button">Start Planning</button>
+            </form>
           </div>
         </div>
       </section>
@@ -74,6 +74,24 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="destinations">
+        <h2 class="destinations__title">POPULAR DESTINATIONS</h2>
+        <div class="destinations__slider slider">
+          <div class="slider__inner">
+            <img src="src/img/spain.png" alt="Sea landscape, Spain" class="destinations__photo">
+            <img src="src/img/japan.png" alt="Torii gate, Japan" class="destinations__photo">
+            <img src="src/img/usa.png" alt="Golden gate breadge, USA, San Francisco" class="destinations__photo">
+          </div>
+          <div class="slider__buttons">
+            <div class="slider__button"></div>
+            <div class="slider__button active"></div>
+            <div class="slider__button"></div>
+          </div>
+        </div>
+        <div class="destinations__button">
+          <a href="#" class="button">Find More</a>
         </div>
       </section>
     </div>

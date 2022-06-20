@@ -8,12 +8,12 @@ body {
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
 .container-content {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -101,6 +101,10 @@ body {
   flex: 1 1 auto;
 }
 
+/* --------- PREVIEW --------------- */
+
+/* попробовать натянуть фон на бади, чтобы он не лез влево при уменьшении */
+
 .preview {
   background: url(../img/bg-1.png);
   height: 765px;
@@ -170,6 +174,10 @@ body {
 
 /* --------- STEPS ----------- */
 
+.steps {
+  margin-bottom: 96px;
+}
+
 .steps__container {
   text-align: center;
 }
@@ -205,7 +213,7 @@ body {
 }
 
 .steps__icon {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .steps__column:nth-child(1) {
@@ -218,4 +226,90 @@ body {
 
 .steps__column:nth-child(3) {
   justify-content: flex-end;
+}
+
+/* ------------ DESTINATIONS --------------- */
+
+.destinations {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.destinations__title {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 53px;
+  color: #f2785c;
+  margin-bottom: 46px;
+}
+
+.slider__inner {
+  display: flex;
+  overflow: hidden;
+  gap: 60px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.destinations__photo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+/* завернуть img в div */
+
+.slider__buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.slider__button {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(242, 120, 92, 0.5);
+}
+
+.slider__button.active {
+  background: #f2785c;
+}
+
+.destinations__button {
+  margin-bottom: 80px;
+}
+
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 13.5px 33.5px 13.5px 83px;
+  background: #0d606f;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+  border-radius: 10px;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 13.5%;
+  left: 13.5%;
+  background: url(../img/right-arrow.svg) 50% 50% / contain no-repeat;
+  width: 40px;
+  height: 40px;
+  color: white;
 }
