@@ -1,19 +1,18 @@
 @import url(normalize.css);
 
+html {
+  scroll-behavior: smooth;
+}
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .container {
-  max-width: 1440px;
+  width: 1440px;
   margin: 0 auto;
 }
 
 .container-content {
-  max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
 }
 
@@ -276,6 +275,7 @@ body {
   height: 20px;
   border-radius: 50%;
   background: rgba(242, 120, 92, 0.5);
+  cursor: pointer;
 }
 
 .slider__button.active {
@@ -312,4 +312,116 @@ body {
   width: 40px;
   height: 40px;
   color: white;
+}
+
+/* --------- STORIES -------- */
+
+.stories {
+}
+
+.test {
+  padding-top: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.stories__container {
+  /* padding-top: 40px; */
+  background: url(../img/bg-2.jpg);
+  padding-bottom: 62px;
+}
+
+.stories__title {
+  text-align: center;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 53px;
+  color: #f2785c;
+  margin-bottom: 40px;
+}
+
+.stories__column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stories__column .button {
+  margin-top: 10px;
+  padding-right: 40px;
+  margin-bottom: 40px;
+}
+
+.article {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.article__image {
+  filter: drop-shadow(0px 4px 4px #0d606f);
+  border-radius: 16px;
+  flex: 1 1 400px;
+  overflow: hidden;
+}
+
+.article__column {
+  flex: 1 1 760px;
+}
+
+.stories__column .article:last-child {
+  margin-bottom: 40px;
+}
+
+.article__title {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: #0d606f;
+  margin-bottom: 24px;
+}
+
+.article__text {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0d606f;
+}
+
+.article__link {
+  font-family: "Aleo";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration-line: underline;
+
+  color: #0d606f;
+}
+
+/* -------- FOOTER ---------- */
+
+.footer {
+  /* position: relative;
+  z-index: 3; */
+  margin-top: -60px;
+  position: relative;
+}
+
+.footer__container {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
 }
