@@ -3,8 +3,6 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-}
 
 .container {
   width: 1440px;
@@ -252,15 +250,43 @@ body {
   justify-content: center;
   margin-bottom: 24px;
 }
+/* --------- */
+.photo__wrapper {
+  flex: 1 0 800px;
+  position: relative;
+}
+/* ------- */
+.slider__inner .photo__wrapper::before {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  left: 15px;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.slider__inner .photo__wrapper:nth-child(1):before {
+  content: "spain";
+}
+
+.slider__inner .photo__wrapper:nth-child(2):before {
+  content: "japan";
+}
+
+.slider__inner .photo__wrapper:nth-child(3):before {
+  content: "usa";
+}
 
 .destinations__photo {
-  position: relative;
   width: 100%;
   height: auto;
   border-radius: 16px;
 }
-
-/* завернуть img в div */
 
 .slider__buttons {
   display: flex;
@@ -316,10 +342,7 @@ body {
 
 /* --------- STORIES -------- */
 
-.stories {
-}
-
-.test {
+.stories__wrap {
   padding-top: 40px;
   background-color: rgba(255, 255, 255, 0.7);
 }
@@ -405,7 +428,7 @@ body {
 }
 
 /* -------- FOOTER ---------- */
-
+/* добавить ссылки и тд */
 .footer {
   /* position: relative;
   z-index: 3; */
@@ -416,7 +439,7 @@ body {
 .footer__container {
   height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
   font-family: "Red Hat Text";
   font-style: normal;
@@ -425,3 +448,29 @@ body {
   line-height: 21px;
   color: #ffffff;
 }
+
+.author__social {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.author__social__link .author__social__img {
+  aspect-ratio: 16 / 9;
+  width: 61px;
+  height: 35px;
+  filter: invert(100%);
+}
+
+.social {
+  display: flex;
+  gap: 20px;
+}
+/* 
+  refactor typo
+  поменять a на button (должно быть 4)
+  uppercase etc через text-transform
+  favicon
+  png to jpg
+  refactor img path
+*/
