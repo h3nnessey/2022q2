@@ -491,3 +491,140 @@ html {
   display: flex;
   gap: 20px;
 }
+
+/* ----------- ADAPTIVE --------------- */
+@media (max-width: 390px) {
+  .container {
+    width: 390px;
+  }
+
+  .container-content {
+    width: 360px;
+  }
+  .header .container {
+    background: none;
+    box-shadow: none;
+    background: linear-gradient(180deg, #0d606f 0%, rgba(13, 96, 111, 0) 25.1%);
+  }
+
+  .header__container {
+    height: 84px;
+  }
+
+  .header__title {
+    font-size: 0;
+  }
+
+  .header__title {
+    margin-bottom: -39px;
+  }
+
+  .header__burger {
+    margin-top: 34px;
+    padding-right: 5px;
+  }
+  .nav {
+    display: none;
+  }
+
+  .header__button {
+    display: none;
+  }
+
+  .preview {
+    background: url(../img/background/bg-1-mobile.jpg) no-repeat;
+    height: 251px;
+    margin-top: -84px;
+    margin-bottom: 20px;
+    padding-top: 142px;
+  }
+
+  .preview__title,
+  .preview__subtitle {
+    display: none;
+  }
+
+  .preview__button {
+    font-size: 11px;
+    line-height: 15px;
+    padding: 7.5px 9px;
+  }
+
+  .preview__input,
+  .preview__input::placeholder {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .preview__search {
+    padding: 9px 9px 9px 16px;
+    margin-bottom: 61px;
+  }
+
+  .steps {
+    margin-bottom: 20px;
+  }
+  .steps__title {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 20px;
+  }
+  .steps__column {
+    flex-basis: content;
+  }
+  .steps__column {
+    display: flex;
+    flex: 0 1;
+    text-align: center;
+  }
+
+  .steps__icon {
+    margin-bottom: 20px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .steps__item {
+    font-family: "Aleo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 12px;
+    color: #0d606f;
+  }
+
+  .steps__column:nth-child(1) {
+    justify-content: stretch;
+    text-align: left;
+    flex-basis: 80px;
+  }
+
+  .steps__column:nth-child(2) {
+    text-align: center;
+    flex-basis: 130px;
+  }
+
+  .steps__column:nth-child(2) .item__title {
+    padding-left: 3px;
+  }
+
+  .steps__column:nth-child(3) {
+    justify-content: flex-end;
+    flex-basis: 82px;
+  }
+
+  .steps__column:nth-child(3) {
+    text-align: right;
+  }
+
+  .steps__row {
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .destinations__title {
+    font-size: 14px;
+line-height: 19px;
+  }
+}
+/* ------------------------------- */
