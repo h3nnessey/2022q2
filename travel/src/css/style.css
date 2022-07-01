@@ -722,5 +722,82 @@ html {
     line-height: 19px;
     margin-bottom: 10px;
   }
+
+  .stories__row.article {
+    margin-bottom: 15px;
+  }
+
+  .article {
+    gap: 10px;
+  }
+
+  .article__image {
+    flex: 1 0 155px;
+  }
+
+  .article__title {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 13px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+
+  .article__text {
+    font-size: 9px;
+    line-height: 11px;
+  }
+
+  .article__column {
+    position: relative;
+  }
+
+  .article__link {
+    position: absolute;
+    bottom: 23px;
+    font-size: 9px;
+    line-height: 0;
+    display: inline-block;
+    margin-bottom: -15px;
+  }
+
+  .stories__wrap {
+    padding-top: 10px;
+  }
+
+  .stories__container {
+    padding-bottom: 0;
+    background: url(../img/background/bg-2-mobile.jpg);
+  }
+
+  .stories__row {
+    margin-bottom: 0;
+  }
+
+  .stories__button .button {
+    font-size: 11px;
+    line-height: 15px;
+    padding: 7.5px 12px 7.5px 28px;
+  }
+  .stories__button .button::before {
+    width: 10px;
+    height: 10px;
+    top: 10px;
+  }
+  .stories__column .button {
+    margin-top:0;
+    margin-bottom: 0;
+  }
+
+  .stories__row.article:nth-child(4) {
+    margin-bottom: 10px;
+  }
+
+
+  .footer {
+    display: none;
+  }
 }
 /* ------------------------------- */

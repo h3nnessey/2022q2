@@ -1,37 +1,9 @@
-console.log(`1. Верстка валидная +10
-
-2. Верстка семантическая +20
-
-    В коде странице присутствуют следующие элементы (указано минимальное количество, может быть больше):
-        - <header>, <main>, <footer> +3
-        - четыре элемента <section> +3
-        - только один заголовок <h1> +3
-        - три заголовка <h2> +3
-        - один элемент <nav> (панель навигации) +3
-        - два списка ul > li > a (панель навигации, ссылки на соцсети) +3
-        - четыре кнопки <button> +2
-
-3. Верстка соответуствует макету +48 (отклонений превышающих тз нет)
-    - блок <header> +6
-    - секция preview +9
-    - секция steps +9
-    - секция destinations +9
-    - секция stories +9
-    - блок <footer> +6
-
-4. Требования к css + 12
-    - для построения сетки используются флексы или гриды +2
-    - при уменьшении масштаба страницы браузера вёрстка размещается по центру, а не сдвигается в сторону +2
-    - фоновый цвет (белый) тянется на всю ширину страницы +2
-    - иконки добавлены в формате .svg +2
-    - изображения добавлены в формате .jpg +2
-    - есть favicon +2
-
-5. Интерактивность, реализуемая через css +20
-    - плавная прокрутка по якорям +5
-    - иконки соцсетей в футере при нажатии на них ведут на гитхаб автора проекта и на страницу курса (допускается добавление своих вариантов иконок github или RSSchool) https://rs.school/js-stage0/ +5
-    - интерактивность включает в себя не только изменение внешнего вида курсора, например, при помощи свойства cursor: pointer, но и другие визуальные эффекты, например, изменение цвета фона или цвета шрифта. +5
-    - плавное изменение внешнего вида элемента (transition) при наведении и клике не влияющее на соседние элементы +5
-
-
-Итоговая оценка: 110/100`);
+const articles = document.querySelectorAll(".article__text");
+document.addEventListener("DOMContentLoaded", (e) => {
+  if (window.innerWidth <= 390) {
+    articles.forEach((article) => {
+      article.textContent =
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla.Lorem ipsum dolor sit a... ";
+    });
+  }
+});
