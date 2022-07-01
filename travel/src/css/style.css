@@ -769,7 +769,7 @@ html {
 
   .stories__container {
     padding-bottom: 0;
-    background: url(../img/background/bg-2-mobile.jpg);
+    background: url(../img/background/bg-2-mobile.jpg) no-repeat;
   }
 
   .stories__row {
@@ -780,6 +780,7 @@ html {
     font-size: 11px;
     line-height: 15px;
     padding: 7.5px 12px 7.5px 28px;
+    margin-bottom: 0;
   }
   .stories__button .button::before {
     width: 10px;
@@ -788,16 +789,45 @@ html {
   }
   .stories__column .button {
     margin-top:0;
-    margin-bottom: 0;
   }
 
   .stories__row.article:nth-child(4) {
     margin-bottom: 10px;
   }
 
+  .stories__container {
+    padding-bottom: 65px;
+  }
+
+  .stories__wrap {
+    padding-bottom: 13px;
+  }
+  
+  .author__social {
+    display: none;
+  }
+
+  .footer__text {
+    display: none;
+  }
+
+  .footer__container {
+    justify-content: center;
+    align-items: center;
+    height: 65px;
+    padding-left: 8px;
+  }
 
   .footer {
-    display: none;
+    position: relative;
+    margin-top: -65px;
   }
 }
 /* ------------------------------- */
+
+/*
+  REFACTOR REFACTOR
+  FIX SLIDER
+  ADD BURGER
+  ETC
+*/
