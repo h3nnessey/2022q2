@@ -624,7 +624,103 @@ html {
 
   .destinations__title {
     font-size: 14px;
-line-height: 19px;
+    line-height: 19px;
+    margin-bottom: 20px;
+  }
+
+  .slider__inner {
+    gap: 20px;
+    position: relative;
+  }
+
+  .photo__wrapper {
+    flex: 1 0 360px;
+  }
+
+  .photo__wrapper:nth-child(1) {
+    order: 2;
+  }
+  .photo__wrapper:nth-child(2) {
+    order: 3;
+  }
+  .photo__wrapper:nth-child(3) {
+    order: 1;
+  }
+
+  .slider__inner {
+    margin-bottom: 10px;
+  }
+
+  .slider__inner .photo__wrapper::before {
+    top: 8px;
+    left: 15px;
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  .slider__inner::before {
+    content: "";
+    position: absolute;
+    background: url(../img/svg/arrow.svg) 50% 50% no-repeat;
+    width: 30px;
+    height: 30px;
+    top: 43%;
+    left: 18px;
+    z-index: 5;
+    transform: rotate(180deg);
+  }
+
+  .slider__inner::after {
+    content: "";
+    position: absolute;
+    background: url(../img/svg/arrow.svg) 50% 50% no-repeat;
+    width: 30px;
+    height: 30px;
+    top: 43%;
+    right: 18px;
+    z-index: 5;
+  }
+
+  .slider {
+    position: relative;
+  }
+
+  .slider__buttons {
+    gap: 6px;
+    position: absolute;
+    z-index: 5;
+    left: 45%;
+    bottom: -8%;
+  }
+
+  .slider__button {
+    width: 8px;
+    height: 8px;
+  }
+
+  .destinations__button .button {
+    font-size: 11px;
+    line-height: 15px;
+    padding: 7.5px 12px 7.5px 28px;
+  }
+  .destinations__button .button::before {
+    width: 10px;
+    height: 10px;
+    top: 10px;
+  }
+
+  .destinations__button {
+    margin: 0;
+  }
+
+  .destinations {
+    margin-bottom: 20px;
+  }
+
+  .stories__title {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 10px;
   }
 }
 /* ------------------------------- */
