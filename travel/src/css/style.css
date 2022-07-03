@@ -22,9 +22,11 @@ html {
 .header .container {
   box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
   background: rgba(242, 120, 92, 0.7);
+  position: relative;
 }
 
 .header__container {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,6 +109,73 @@ html {
   background-color: #0d6f49;
 }
 
+.header__burger {
+  display: none;
+}
+
+.burger {
+  position: absolute;
+  right: -250px;
+  width: 165px;
+  height: 250px;
+
+  background: #f2785c;
+  box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: column;
+  padding-right: 15px;
+  transition: 0.5s;
+
+  display: none;
+}
+
+.burger__btn {
+  margin: 8px 0 5px 8px;
+}
+
+.burger__btn_icon {
+  height: 30px;
+  width: 30px;
+  background: url(../img//svg/cross.svg) 50% 50% no-repeat;
+}
+
+.burger__menu {
+  align-self: flex-end;
+}
+
+.burger__link {
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.burger__link > a {
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+}
+
+@keyframes move-left {
+  0% {
+    right: -250px;
+  }
+  100% {
+    right: 0%;
+  }
+}
+
+@keyframes move-right {
+  0% {
+    right: 0%;
+  }
+  100% {
+    right: -250px;
+  }
+}
 /* ----------- MAIN ------------- */
 
 .main {
@@ -493,7 +562,7 @@ html {
 }
 
 /* ----------- ADAPTIVE --------------- */
-@media (max-width: 390px) {
+@media (max-width: 391px) {
   .container {
     width: 390px;
   }
@@ -736,7 +805,7 @@ html {
   }
 
   .article__title {
-    font-family: 'Aleo';
+    font-family: "Aleo";
     font-style: normal;
     font-weight: 700;
     font-size: 11px;
@@ -746,8 +815,13 @@ html {
   }
 
   .article__text {
+    display: -webkit-box;
     font-size: 9px;
     line-height: 11px;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .article__column {
@@ -788,7 +862,7 @@ html {
     top: 10px;
   }
   .stories__column .button {
-    margin-top:0;
+    margin-top: 0;
   }
 
   .stories__row.article:nth-child(4) {
@@ -802,7 +876,7 @@ html {
   .stories__wrap {
     padding-bottom: 13px;
   }
-  
+
   .author__social {
     display: none;
   }
@@ -822,6 +896,48 @@ html {
     position: relative;
     margin-top: -65px;
   }
+
+  .header__burger {
+    display: block;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .header,
+  .header.container {
+    position: relative;
+  }
+  .burger__wrap {
+    z-index: 10;
+    min-height: 1475px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
+  }
+
+  @keyframes bgc-black {
+    0% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: rgba(0,0,0,0.5);
+    }
+  }
+
+  @keyframes bgc-none {
+    0% {
+      background-color: rgba(0,0,0,0.5);
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+
 }
 /* ------------------------------- */
 
@@ -829,5 +945,15 @@ html {
   REFACTOR REFACTOR
   FIX SLIDER
   ADD BURGER
+  MORE LINKS IN FOOTER
   ETC
+
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+
+    обязательно переделать текст через css
+    иначе пизда и все ломается
 */
