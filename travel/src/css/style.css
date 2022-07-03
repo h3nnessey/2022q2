@@ -731,6 +731,7 @@ html {
     content: "";
     position: absolute;
     background: url(../img/svg/arrow.svg) 50% 50% no-repeat;
+    opacity: 0.5;
     width: 30px;
     height: 30px;
     top: 43%;
@@ -925,13 +926,13 @@ html {
       background-color: transparent;
     }
     100% {
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.5);
     }
   }
 
   @keyframes bgc-none {
     0% {
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0,0,0,0.5);
     }
     100% {
       background-color: transparent;
@@ -942,18 +943,6 @@ html {
 /* ------------------------------- */
 
 /*
-  REFACTOR REFACTOR
   FIX SLIDER
-  ADD BURGER
   MORE LINKS IN FOOTER
-  ETC
-
-  overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-
-    обязательно переделать текст через css
-    иначе пизда и все ломается
 */

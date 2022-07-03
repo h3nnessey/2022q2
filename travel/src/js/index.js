@@ -5,36 +5,47 @@ const burgerWrap = document.querySelector(".burger__wrap");
 
 burgerOpen.addEventListener("click", (e) => {
   burgerWrap.style.display = "block";
-  burgerWrap.style.animation = "bgc-black 0.5s linear 1 forwards";
-  burger.style.animation = "move-left 0.5s linear 1 forwards";
+  burgerWrap.style.animation = "bgc-black 0.3s linear 1 forwards";
+  burger.style.animation = "move-left 0.3s linear 1 forwards";
 
-  const links = document.querySelectorAll('.burger__link');
+  const links = document.querySelectorAll(".burger__link");
   links.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      burger.style.animation = "move-right 0.5s linear 1 forwards";
-      burgerWrap.style.animation = "bgc-none 0.5s linear 1 forwards";
+    link.addEventListener("click", (e) => {
+
+      burger.style.animation = "move-right 0.3s linear 1 forwards";
+      burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
+      
       setTimeout(() => {
         burgerWrap.style.display = "none";
-      }, 500);
-    })
-  })
-  burgerWrap.addEventListener('click', (e) => {
-    if (e.target.className === 'burger__wrap') {
-      burger.style.animation = "move-right 0.5s linear 1 forwards";
-      burgerWrap.style.animation = "bgc-none 0.5s linear 1 forwards";
+      }, 300);
+      
+    });
+  });
+
+  burgerWrap.addEventListener("click", (e) => {
+
+    if (e.target.className === "burger__wrap") {
+
+      burger.style.animation = "move-right 0.3s linear 1 forwards";
+      burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
+
       setTimeout(() => {
         burgerWrap.style.display = "none";
-      }, 500);
+      }, 300);
     }
-  })
+  });
+
 });
 
 burgerClose.addEventListener("click", (e) => {
-  burger.style.animation = "move-right 0.5s linear 1 forwards";
-  burgerWrap.style.animation = "bgc-none 0.5s linear 1 forwards";
+
+  burger.style.animation = "move-right 0.3s linear 1 forwards";
+  burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
+
   setTimeout(() => {
     burgerWrap.style.display = "none";
-  }, 500);
+  }, 300);
+
 });
 
 // вынести в отдельные функции DRY
