@@ -735,7 +735,7 @@ html {
     height: 30px;
     top: 43%;
     left: 18px;
-    z-index: 5;
+    z-index: 1;
     transform: rotate(180deg);
   }
 
@@ -747,7 +747,7 @@ html {
     height: 30px;
     top: 43%;
     right: 18px;
-    z-index: 5;
+    z-index: 1;
   }
 
   .slider {
@@ -757,7 +757,7 @@ html {
   .slider__buttons {
     gap: 6px;
     position: absolute;
-    z-index: 5;
+    z-index: 1;
     left: 45%;
     bottom: -8%;
   }
@@ -925,13 +925,13 @@ html {
       background-color: transparent;
     }
     100% {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.7);
     }
   }
 
   @keyframes bgc-none {
     0% {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.7);
     }
     100% {
       background-color: transparent;

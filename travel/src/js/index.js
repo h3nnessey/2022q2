@@ -8,7 +8,25 @@ burgerOpen.addEventListener("click", (e) => {
   burgerWrap.style.animation = "bgc-black 0.5s linear 1 forwards";
   burger.style.animation = "move-left 0.5s linear 1 forwards";
 
-  // добавить листенер на ссылки и тело враппера
+  const links = document.querySelectorAll('.burger__link');
+  links.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      burger.style.animation = "move-right 0.5s linear 1 forwards";
+      burgerWrap.style.animation = "bgc-none 0.5s linear 1 forwards";
+      setTimeout(() => {
+        burgerWrap.style.display = "none";
+      }, 500);
+    })
+  })
+  burgerWrap.addEventListener('click', (e) => {
+    if (e.target.className === 'burger__wrap') {
+      burger.style.animation = "move-right 0.5s linear 1 forwards";
+      burgerWrap.style.animation = "bgc-none 0.5s linear 1 forwards";
+      setTimeout(() => {
+        burgerWrap.style.display = "none";
+      }, 500);
+    }
+  })
 });
 
 burgerClose.addEventListener("click", (e) => {
@@ -18,3 +36,5 @@ burgerClose.addEventListener("click", (e) => {
     burgerWrap.style.display = "none";
   }, 500);
 });
+
+// вынести в отдельные функции DRY
