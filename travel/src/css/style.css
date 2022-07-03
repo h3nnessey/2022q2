@@ -773,6 +773,7 @@ html {
     line-height: 15px;
     padding: 7.5px 12px 7.5px 28px;
   }
+  
   .destinations__button .button::before {
     width: 10px;
     height: 10px;
@@ -857,11 +858,13 @@ html {
     padding: 7.5px 12px 7.5px 28px;
     margin-bottom: 0;
   }
+
   .stories__button .button::before {
     width: 10px;
     height: 10px;
     top: 10px;
   }
+
   .stories__column .button {
     margin-top: 0;
   }
@@ -910,6 +913,7 @@ html {
   .header.container {
     position: relative;
   }
+
   .burger__wrap {
     z-index: 10;
     min-height: 1475px;
@@ -929,7 +933,7 @@ html {
       background-color: rgba(0,0,0,0.5);
     }
   }
-
+  
   @keyframes bgc-none {
     0% {
       background-color: rgba(0,0,0,0.5);
@@ -938,11 +942,5 @@ html {
       background-color: transparent;
     }
   }
-
 }
 /* ------------------------------- */
-
-/*
-  FIX SLIDER
-  MORE LINKS IN FOOTER
-*/
