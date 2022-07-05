@@ -359,6 +359,28 @@ html {
   /* overflow: hidden; */
 }
 
+.controls.left {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: transparent;
+  font-size: 0;
+}
+
+.controls.right {
+  width: 20%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  background: transparent;
+  font-size: 0;
+}
+
 .slider {
   position: relative;
   overflow: hidden;
@@ -386,16 +408,20 @@ html {
   text-transform: uppercase;
 }
 
-.slider__inner .photo__wrapper:nth-child(1):before {
+.slider__inner .photo__wrapper:nth-child(2):before {
   content: "spain";
 }
 
-.slider__inner .photo__wrapper:nth-child(2):before {
+.slider__inner .photo__wrapper:nth-child(3):before {
   content: "japan";
 }
 
-.slider__inner .photo__wrapper:nth-child(3):before {
+.slider__inner .photo__wrapper:nth-child(4):before {
   content: "usa";
+}
+
+.slider__inner .photo__wrapper:last-child:before {
+  content: "spain";
 }
 
 .destinations__photo {
