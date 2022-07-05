@@ -176,6 +176,25 @@ html {
     right: -250px;
   }
 }
+
+@keyframes bgc-black {
+  0% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+
+@keyframes bgc-none {
+  0% {
+    background-color: rgba(0,0,0,0.5);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
 /* ----------- MAIN ------------- */
 
 .main {
@@ -331,11 +350,19 @@ html {
 }
 
 .slider__inner {
+  position: relative;
   display: flex;
   margin-bottom: 24px;
   gap: 60px;
+  transition: 0.3s;
   justify-content: center;
+  /* overflow: hidden; */
+}
+
+.slider {
+  position: relative;
   overflow: hidden;
+
 }
 
 /* --------- */
@@ -563,12 +590,13 @@ html {
 
 /* ----------- ADAPTIVE --------------- */
 @media (max-width: 391px) {
+
   .container {
-    width: 390px;
+    max-width: 390px;
   }
 
   .container-content {
-    width: 360px;
+    max-width: 360px;
   }
   .header .container {
     background: none;
@@ -625,6 +653,10 @@ html {
     line-height: 17px;
   }
 
+  .preview__input {
+    padding-top: 3px;
+  }
+
   .preview__search {
     padding: 9px 9px 9px 16px;
     margin-bottom: 61px;
@@ -633,17 +665,17 @@ html {
   .steps {
     margin-bottom: 20px;
   }
+
   .steps__title {
     font-size: 14px;
     line-height: 19px;
     margin-bottom: 20px;
   }
-  .steps__column {
-    flex-basis: content;
-  }
+
   .steps__column {
     display: flex;
     flex: 0 1;
+    flex-basis: content;
     text-align: center;
   }
 
@@ -651,6 +683,7 @@ html {
     margin-bottom: 20px;
     width: 70px;
     height: 70px;
+    border-radius: 16px;
   }
 
   .steps__item {
@@ -751,10 +784,6 @@ html {
     z-index: 1;
   }
 
-  .slider {
-    position: relative;
-  }
-
   .slider__buttons {
     gap: 6px;
     position: absolute;
@@ -841,6 +870,7 @@ html {
 
   .stories__wrap {
     padding-top: 10px;
+    padding-bottom: 13px;
   }
 
   .stories__container {
@@ -855,7 +885,7 @@ html {
   .stories__button .button {
     font-size: 11px;
     line-height: 15px;
-    padding: 7.5px 12px 7.5px 28px;
+    padding: 7.5px 13px 7.5px 29px;
     margin-bottom: 0;
   }
 
@@ -875,10 +905,6 @@ html {
 
   .stories__container {
     padding-bottom: 65px;
-  }
-
-  .stories__wrap {
-    padding-bottom: 13px;
   }
 
   .author__social {
@@ -923,24 +949,6 @@ html {
     left: 0;
     overflow: hidden;
     display: none;
-  }
-
-  @keyframes bgc-black {
-    0% {
-      background-color: transparent;
-    }
-    100% {
-      background-color: rgba(0,0,0,0.5);
-    }
-  }
-  
-  @keyframes bgc-none {
-    0% {
-      background-color: rgba(0,0,0,0.5);
-    }
-    100% {
-      background-color: transparent;
-    }
   }
 }
 /* ------------------------------- */
