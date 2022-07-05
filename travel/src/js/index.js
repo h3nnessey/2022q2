@@ -3,26 +3,28 @@ const burger = document.querySelector(".burger");
 const burgerClose = document.querySelector(".burger__btn_icon");
 const burgerWrap = document.querySelector(".burger__wrap");
 const links = document.querySelectorAll(".burger__link");
+const sliderBtns = document.querySelectorAll(".slider__button");
 
-function show() {
-  document.body.style.overflow = 'hidden';
-  burgerWrap.style.display = "block";
-  burgerWrap.style.animation = "bgc-black 0.3s linear 1 forwards";
-  burger.style.animation = "move-left 0.3s linear 1 forwards";
-}
 
-function hide() {
-  document.body.style.overflow = 'initial';
-  burger.style.animation = "move-right 0.3s linear 1 forwards";
-  burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
-  const hideBurgerWrap = () => (burgerWrap.style.display = "none");
-  setTimeout(hideBurgerWrap, 300);
-}
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 390) {
+    if (sliderBtns[1].classList.contains("active")) {
+      sliderBtns[1].classList.remove("active");
+    }
+    sliderBtns[0].classList.add("active");
+  }
+  if (window.innerWidth > 390) {
+    if (sliderBtns[0].classList.contains("active")) {
+      sliderBtns[0].classList.remove("active");
+    }
+    sliderBtns[1].classList.add("active");
+  }
+});
 
-burgerOpen.addEventListener("click", (e) => {
+burgerOpen.addEventListener("click", () => {
   show();
   links.forEach((link) => {
-    link.addEventListener("click", (e) => {
+    link.addEventListener("click", () => {
       hide();
     });
   });
@@ -34,11 +36,24 @@ burgerOpen.addEventListener("click", (e) => {
   });
 });
 
-burgerClose.addEventListener("click", (e) => {
+burgerClose.addEventListener("click", () => {
   hide();
 });
 
+function show() {
+  document.body.style.overflow = "hidden";
+  burgerWrap.style.display = "block";
+  burgerWrap.style.animation = "bgc-black 0.3s linear 1 forwards";
+  burger.style.animation = "move-left 0.3s linear 1 forwards";
+}
 
+function hide() {
+  document.body.style.overflow = "initial";
+  burger.style.animation = "move-right 0.3s linear 1 forwards";
+  burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
+  const hideBurgerWrap = () => (burgerWrap.style.display = "none");
+  setTimeout(hideBurgerWrap, 300);
+}
 
 console.log(`Вёрстка соответствует макету. Ширина экрана 390px +48
     - блок <header> +6
@@ -65,4 +80,4 @@ console.log(`Вёрстка соответствует макету. Ширин�
 
 P.S. Напоминаю, что девтулзы могут лагать и надо выставлять нужное разрешение несколько раз для честной проверки!
 
-Score: 85/75`)
+Score: 85/75`);
