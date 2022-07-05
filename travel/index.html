@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<!-- Валидатор ругается на lang="en" из-за текста рыбы -->
 <html lang="zxx">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Travel</title>
-  <link rel="icon" href="src/img/favicon.ico">
-  <link rel="stylesheet" href="src/css/normalize.css">
-  <link rel="stylesheet" href="src/css/style.css">
-  <link href="https://fonts.googleapis.com/css?family=Magra:regular,700" rel="stylesheet" />
+  <link rel="icon" href="src/img/favicon.ico" />
   <link
     href="https://fonts.googleapis.com/css?family=Red+Hat+Text:300,regular,500,600,700,300italic,italic,500italic,600italic,700italic"
     rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Aleo:300,300italic,regular,italic,700,700italic"
     rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Magra:regular,700" rel="stylesheet" />
+  <link rel="stylesheet" href="src/css/normalize.css" />
+  <link rel="stylesheet" href="src/css/style.css" />
 </head>
 
 <body>
   <header class="header">
     <div class="container">
+      <div class="burger__wrap">
+        <div class="burger">
+          <div class="burger__btn">
+            <div class="burger__btn_icon"></div>
+          </div>
+          <nav class="burger__menu">
+            <ul class="burger__list">
+              <li class="burger__link">
+                <a href="#preview" class="">How It Works</a>
+              </li>
+              <li class="burger__link">
+                <a href="#steps" class="">Plan Your Trip</a>
+              </li>
+              <li class="burger__link">
+                <a href="#destinations" class="">Destinations</a>
+              </li>
+              <li class="burger__link">
+                <a href="#stories" class="">Travel Stories</a>
+              </li>
+              <li class="burger__link">
+                <a href="##" class="">Account</a>
+              </li>
+              <li class="burger__link">
+                <a href="#social" class="">Social Media</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
       <div class="container-content header__container">
         <div class="header__title">travel portal</div>
         <nav class="nav">
@@ -42,6 +71,9 @@
         <div class="header__button">
           <button class="btn">Login</button>
         </div>
+        <div class="header__burger">
+          <img src="src/img/svg/burger.svg" alt="burger ico" />
+        </div>
       </div>
     </div>
   </header>
@@ -51,11 +83,15 @@
         <div class="container-content">
           <div class="preview__container" id="preview">
             <h1 class="preview__title">Explore the beauty of the World</h1>
-            <p class="preview__subtitle">Receive personalized recommendations for countries, hotels, activities and more
+            <p class="preview__subtitle">
+              Receive personalized recommendations for countries, hotels,
+              activities and more
             </p>
             <form class="preview__search" action="#">
-              <input type="text" class="preview__input" placeholder="What would you like to do?">
-              <button type="submit" class="preview__button">start planning</button>
+              <input type="text" class="preview__input" placeholder="What would you like to do?" />
+              <button type="submit" class="preview__button">
+                start planning
+              </button>
             </form>
           </div>
         </div>
@@ -66,19 +102,19 @@
           <div class="steps__row">
             <div class="steps__column">
               <div class="steps__item">
-                <img class="steps__icon" src="src/img/steps/01.svg" alt="First step">
+                <img class="steps__icon" src="src/img/steps/01.svg" alt="First step" />
                 <p class="item__title">Tell us what you want to do</p>
               </div>
             </div>
             <div class="steps__column">
               <div class="steps__item">
-                <img class="steps__icon" src="src/img/steps/02.svg" alt="Second step">
-                <p class="item__title">Share us preferable dates </p>
+                <img class="steps__icon" src="src/img/steps/02.svg" alt="Second step" />
+                <p class="item__title">Share us preferable dates</p>
               </div>
             </div>
             <div class="steps__column">
               <div class="steps__item">
-                <img class="steps__icon" src="src/img/steps/03.svg" alt="Third step">
+                <img class="steps__icon" src="src/img/steps/03.svg" alt="Third step" />
                 <p class="item__title">We will give you recommendations</p>
               </div>
             </div>
@@ -90,13 +126,23 @@
         <div class="destinations__slider slider">
           <div class="slider__inner">
             <div class="photo__wrapper">
-              <img src="src/img/destinations/spain.jpg" alt="Sea landscape, Spain" class="destinations__photo">
+              <picture>
+                <source srcset="src/img/destinations/spain-m.jpg" media="(max-width: 390px)" />
+                <img src="src/img/destinations/spain.jpg" alt="Sea landscape, Spain" class="destinations__photo" />
+              </picture>
             </div>
             <div class="photo__wrapper">
-              <img src="src/img/destinations/japan.jpg" alt="Torii gate, Japan" class="destinations__photo">
+              <picture>
+                <source srcset="src/img/destinations/japan-m.jpg" media="(max-width: 390px)" />
+                <img src="src/img/destinations/japan.jpg" alt="Torii gate, Japan" class="destinations__photo" />
+              </picture>
             </div>
             <div class="photo__wrapper">
-              <img src="src/img/destinations/usa.jpg" alt="Golden gate breadge, USA, San Francisco" class="destinations__photo">
+              <picture>
+                <source srcset="src/img/destinations/usa-m.jpg" media="(max-width: 390px)" />
+                <img src="src/img/destinations/usa.jpg" alt="Golden gate breadge, USA, San Francisco"
+                  class="destinations__photo" />
+              </picture>
             </div>
           </div>
           <div class="slider__buttons">
@@ -117,61 +163,105 @@
               <div class="stories__column">
                 <div class="stories__row article">
                   <div class="article__image">
-                    <img src="src/img/stories/stories_01.jpg" alt="Attractive Thailand">
+                    <picture>
+                      <source media="(max-width: 390px)" srcset="src/img/stories/stories_01-m.jpg" />
+                      <img src="src/img/stories/stories_01.jpg" alt="Attractive Thailand" />
+                    </picture>
                   </div>
                   <div class="article__column">
-                    <h3 class="article__title"> 10 Photos of Attractive Thailand </h3>
-                    <p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                      laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    <h3 class="article__title">
+                      10 Photos of Attractive Thailand
+                    </h3>
+                    <p class="article__text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                      non proident, sunt in culpa qui officia deserunt mollit
+                      anim id est laborum.Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit...
+                    </p>
                     <a href="#" class="article__link">read more</a>
                   </div>
                 </div>
                 <div class="stories__row article">
                   <div class="article__image">
-                    <img src="src/img/stories/stories_02.jpg" alt="Canyonlands National Park, Utah">
+                    <picture>
+                      <source media="(max-width: 390px)" srcset="src/img/stories/stories_02-m.jpg" />
+                      <img src="src/img/stories/stories_02.jpg" alt="Canyonlands National Park, Utah" />
+                    </picture>
                   </div>
                   <div class="article__column">
-                    <h3 class="article__title"> Canyonlands National Park, Utah </h3>
-                    <p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                      laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    <h3 class="article__title">
+                      Canyonlands National Park, Utah
+                    </h3>
+                    <p class="article__text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                      non proident, sunt in culpa qui officia deserunt mollit
+                      anim id est laborum.Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit...
+                    </p>
                     <a href="#" class="article__link">read more</a>
                   </div>
                 </div>
                 <div class="stories__row article">
                   <div class="article__image">
-                    <img src="src/img/stories/stories_03.jpg" alt="Mountains">
+                    <picture>
+                      <source media="(max-width: 390px)" srcset="src/img/stories/stories_03-m.jpg" />
+                      <img src="src/img/stories/stories_03.jpg" alt="Mountains" />
+                    </picture>
                   </div>
                   <div class="article__column">
-                    <h3 class="article__title"> I left my heart in the Mountains! </h3>
-                    <p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                      laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    <h3 class="article__title">
+                      I left my heart in the Mountains!
+                    </h3>
+                    <p class="article__text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                      non proident, sunt in culpa qui officia deserunt mollit
+                      anim id est laborum.Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit...
+                    </p>
                     <a href="#" class="article__link">read more</a>
                   </div>
                 </div>
                 <div class="stories__row article">
                   <div class="article__image">
-                    <img src="src/img/stories/stories_04.jpg" alt="Canyon">
+                    <picture>
+                      <source media="(max-width: 390px)" srcset="src/img/stories/stories_04-m.jpg" />
+                      <img src="src/img/stories/stories_04.jpg" alt="Canyon" />
+                    </picture>
                   </div>
                   <div class="article__column">
-                    <h3 class="article__title"> The Longest journey in my life! </h3>
-                    <p class="article__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                      reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                      occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                      laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    <h3 class="article__title">
+                      The Longest journey in my life!
+                    </h3>
+                    <p class="article__text">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore
+                      magna aliqua. Ut enim ad minim veniam, quis nostrud
+                      exercitation ullamco laboris nisi ut aliquip ex ea
+                      commodo consequat. Duis aute irure dolor in
+                      reprehenderit in voluptate velit esse cillum dolore eu
+                      fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                      non proident, sunt in culpa qui officia deserunt mollit
+                      anim id est laborum.Lorem ipsum dolor sit amet,
+                      consectetur adipiscing elit...
+                    </p>
                     <a href="#" class="article__link">read more</a>
                   </div>
                 </div>
@@ -191,36 +281,38 @@
         <ul class="author__social">
           <li class="author__social__item">
             <a href="https://github.com/h3nnessey" class="author__social__link">
-              <img src="src/img/svg/github.svg" alt="GitHub icon" class="author__social__img" title="GitHub">
+              <img src="src/img/svg/github.svg" alt="GitHub icon" class="author__social__img" title="GitHub" />
             </a>
           </li>
           <li class="author__social__item">
             <a href="https://rs.school/js-stage0/" class="author__social__link">
-              <img src="src/img/svg/rs_school_js.svg" alt="RS School icon" class="author__social__img" title="RS School">
+              <img src="src/img/svg/rs_school_js.svg" alt="RS School icon" class="author__social__img"
+                title="RS School" />
             </a>
           </li>
         </ul>
-        <div class="footer__text"> All Rights Reserved © Travel Portal </div>
-        <ul class="footer__social social">
+        <div class="footer__text">All Rights Reserved © Travel Portal</div>
+        <ul class="footer__social social" id="social">
           <li class="social__item">
             <a href="#" class="social__link">
-              <img src="src/img/svg/instagram.svg" alt="Insta icon" class="social__link__icon" title="Instagram">
+              <img src="src/img/svg/instagram.svg" alt="Insta icon" class="social__link__icon" title="Instagram" />
             </a>
           </li>
           <li class="social__item">
             <a href="#" class="social__link">
-              <img src="src/img/svg/youtube.svg" alt="Youtube icon" class="social__link__icon" title="Youtube">
+              <img src="src/img/svg/youtube.svg" alt="Youtube icon" class="social__link__icon" title="Youtube" />
             </a>
           </li>
           <li class="social__item">
             <a href="#" class="social__link">
-              <img src="src/img/svg/twitter.svg" alt="Twitter icon" class="social__link__icon" title="Twitter">
+              <img src="src/img/svg/twitter.svg" alt="Twitter icon" class="social__link__icon" title="Twitter" />
             </a>
           </li>
         </ul>
       </div>
     </div>
   </footer>
+
   <script src="src/js/index.js"></script>
 </body>
 
