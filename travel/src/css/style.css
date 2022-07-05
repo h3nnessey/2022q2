@@ -570,6 +570,14 @@ html {
   color: #ffffff;
 }
 
+.github {
+  display: none;
+}
+
+.rs-school {
+  display: none;
+}
+
 .author__social {
   display: flex;
   align-items: center;
@@ -598,10 +606,35 @@ html {
   .container-content {
     max-width: 360px;
   }
+
   .header .container {
     background: none;
     box-shadow: none;
     background: linear-gradient(180deg, #0d606f 0%, rgba(13, 96, 111, 0) 25.1%);
+  }
+
+  .header__burger {
+    display: block;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .header,
+  .header.container {
+    position: relative;
+  }
+
+  .burger__wrap {
+    z-index: 10;
+    min-height: 1475px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    display: none;
   }
 
   .header__container {
@@ -907,6 +940,11 @@ html {
     padding-bottom: 65px;
   }
 
+  .footer {
+    position: relative;
+    margin-top: -65px;
+  }
+
   .author__social {
     display: none;
   }
@@ -916,39 +954,34 @@ html {
   }
 
   .footer__container {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 65px;
-    padding-left: 8px;
   }
 
-  .footer {
-    position: relative;
-    margin-top: -65px;
+  .social {
+    padding-left: 37px;
   }
 
-  .header__burger {
+  .github {
     display: block;
   }
 
-  .burger {
-    display: flex;
+  .rs-school {
+    display: block;
   }
 
-  .header,
-  .header.container {
-    position: relative;
+  .github__img {
+    width: 30px;
+    height: 30px;
+    filter: invert(100%);
   }
 
-  .burger__wrap {
-    z-index: 10;
-    min-height: 1475px;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    display: none;
+  .rs-school__img {
+    width: 60px;
+    height: 30px;
+    filter: invert(100%);
   }
+
 }
 /* ------------------------------- */
