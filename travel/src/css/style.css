@@ -570,14 +570,6 @@ html {
   color: #ffffff;
 }
 
-.github {
-  display: none;
-}
-
-.rs-school {
-  display: none;
-}
-
 .author__social {
   display: flex;
   align-items: center;
@@ -600,11 +592,11 @@ html {
 @media (max-width: 390px) {
 
   .container {
-    max-width: 390px;
+    width: 390px;
   }
 
   .container-content {
-    max-width: 360px;
+    width: 360px;
   }
 
   .header .container {
@@ -954,34 +946,13 @@ html {
   }
 
   .footer__container {
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 65px;
   }
 
   .social {
-    padding-left: 37px;
+    padding-left: 8px;
   }
-
-  .github {
-    display: block;
-  }
-
-  .rs-school {
-    display: block;
-  }
-
-  .github__img {
-    width: 30px;
-    height: 30px;
-    filter: invert(100%);
-  }
-
-  .rs-school__img {
-    width: 60px;
-    height: 30px;
-    filter: invert(100%);
-  }
-
 }
 /* ------------------------------- */
