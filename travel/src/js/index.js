@@ -3,15 +3,6 @@ const burger = document.querySelector(".burger");
 const burgerClose = document.querySelector(".burger__btn_icon");
 const burgerWrap = document.querySelector(".burger__wrap");
 const links = document.querySelectorAll(".burger__link");
-const sliderBtns = document.querySelectorAll(".slider__button");
-
-window.addEventListener("resize", () => {
-  setActive();
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  setActive();
-});
 
 burgerOpen.addEventListener("click", () => {
   show();
@@ -45,21 +36,6 @@ function hide() {
   burgerWrap.style.animation = "bgc-none 0.3s linear 1 forwards";
   const hideBurgerWrap = () => (burgerWrap.style.display = "none");
   setTimeout(hideBurgerWrap, 300);
-}
-
-function setActive() {
-  if (window.innerWidth <= 390) {
-    if (sliderBtns[1].classList.contains("active")) {
-      sliderBtns[1].classList.remove("active");
-    }
-    sliderBtns[0].classList.add("active");
-  }
-  if (window.innerWidth > 390) {
-    if (sliderBtns[0].classList.contains("active")) {
-      sliderBtns[0].classList.remove("active");
-    }
-    sliderBtns[1].classList.add("active");
-  }
 }
 
 console.log(`Вёрстка соответствует макету. Ширина экрана 390px +48
