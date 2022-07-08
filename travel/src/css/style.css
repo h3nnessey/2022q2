@@ -423,6 +423,14 @@ html {
   content: "spain";
 }
 
+.slider__inner .photo__wrapper:first-child {
+  opacity: 0.5;
+}
+
+.slider__inner .photo__wrapper:last-child {
+  opacity: 0.5;
+}
+
 .destinations__photo {
   width: 100%;
   height: auto;
@@ -819,9 +827,6 @@ html {
     flex: 1 0 360px;
   }
 
-  .photo__wrapper:nth-child()::before {
-    content: "spain";
-  }
   #destinations > div.destinations__slider.slider > div.slider__inner > div:nth-child(1),
   #destinations > div.destinations__slider.slider > div.slider__inner > div:nth-child(5) {
     display: none;
