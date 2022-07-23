@@ -127,9 +127,6 @@
           <button class="slider__arrow-left"></button>
           <button class="slider__arrow-right"></button>
           <div class="slider__inner">
-
-
-
             <div class="photo__wrapper">
               <picture>
                 <source srcset="src/img/destinations/usa-m.jpg" media="(max-width: 390px)" />
@@ -166,7 +163,6 @@
                 <img src="src/img/destinations/spain.jpg" alt="Sea landscape, Spain" class="destinations__photo" />
               </picture>
             </div>
-
           </div>
           <div class="slider__buttons">
             <div class="slider__button"></div>
@@ -301,7 +297,6 @@
   <footer class="footer">
     <div class="container">
       <div class="container-content footer__container">
-
         <ul class="author__social">
           <li class="author__social__item">
             <a href="https://github.com/h3nnessey" class="author__social__link">
@@ -333,12 +328,51 @@
             </a>
           </li>
         </ul>
-
       </div>
     </div>
   </footer>
 
-  <script src="src/js/index.js"></script>
+  <div class="popup__wrapper">
+    <div class="popup">
+      <div class="popup__container">
+        <div class="popup__title to-change">Log in to your account</div>
+        <button class="popup__sign-in sign-in-facebook to-hide">
+          <img src="src/img/svg/facebook.svg" alt="Facebook" class="sign-in__icon"/>
+          <span class="sign-in-facebook__text">Sign In with Facebook</span>
+        </button>
+        <button class="popup__sign-in sign-in-google to-hide">
+          <img src="src/img/svg/google.svg" alt="Google" class="sign-in__icon"/>
+          <span class="sign-in-google__text">Sign In with Google</span>
+        </button>
+        <div class="popup__alt to-hide">
+          <p class="popup__alt_text">or</p>
+        </div>
+        <form action="#" class="popup__form">
+          <div class="email-input-wrapper input-wrapper">
+            <h3 class="input-title">E-mail</h3>
+            <input type="email" class="email-input input" />
+          </div>
+          <div class="pswrd-input-wrapper input-wrapper">
+            <h3 class="input-title">Password</h3>
+            <input type="password" class="pswrd-input input" />
+          </div>
+          <button class="form__submit to-change" type="submit">Sign In</button>
+        </form>
+        <div class="popup__forgot to-hide">
+          <a href="#" class="popup__link">Forgot Your Password?</a>
+        </div>
+        <div class="popup__line"></div>
+        <div class="popup__register">
+          <span class="register__text to-change">Don't have an account? </span><a href="##"
+          class="popup__link register__link to-change">Register</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="src/js/slider.js"></script>
+  <script src="src/js/popup.js"></script>
+  <script src="src/js/burger.js"></script>
 </body>
 
 </html>
