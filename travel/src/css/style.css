@@ -719,7 +719,7 @@ html {
 .sign-in-google {
   color: #0d606f;
   background: #ffffff;
-  padding: 15px 173px;
+  padding: 15px 0;
   margin-bottom: 30px;
 }
 
@@ -849,6 +849,20 @@ html {
 
 .form__submit.to-change.active {
   margin-bottom: 26px;
+}
+
+@media (max-width: 390px) {
+  .popup {
+    width: 390px;
+    padding: 15px 0;
+  }
+  .popup__container {
+    width: 375px;
+    margin: 0 auto;
+  }
+  .sign-in-google {
+    padding: 15px 0;
+  }
 }
 
 /* ------------------ POPUP END ------------------- */
