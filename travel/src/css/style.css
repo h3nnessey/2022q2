@@ -595,6 +595,11 @@ html {
   margin-top: -60px;
 }
 
+.footer {
+  position: relative;
+  margin-top: -60px;
+}
+
 .footer__container {
   display: flex;
   justify-content: space-between;
@@ -606,14 +611,6 @@ html {
   font-size: 16px;
   line-height: 21px;
   color: #ffffff;
-}
-
-.github {
-  display: none;
-}
-
-.rs-school {
-  display: none;
 }
 
 .author__social {
@@ -1274,33 +1271,13 @@ html {
   }
 
   .footer__container {
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 65px;
   }
 
   .social {
-    padding-left: 37px;
-  }
-
-  .github {
-    display: block;
-  }
-
-  .rs-school {
-    display: block;
-  }
-
-  .github__img {
-    width: 30px;
-    height: 30px;
-    filter: invert(100%);
-  }
-
-  .rs-school__img {
-    width: 60px;
-    height: 30px;
-    filter: invert(100%);
+    padding-left: 8px;
   }
 }
 

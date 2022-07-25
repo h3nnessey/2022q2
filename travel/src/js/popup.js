@@ -32,12 +32,15 @@ const noReg = {
 });
 
 form.addEventListener("submit", (e) => {
-  if (!popup.classList.contains("active")) {
-    alert(`E-mail: ${emailInput.value}\nPassword: ${pswrdInput.value}`);
-    e.preventDefault();
-    form.reset();
-  }
+  // if (!popup.classList.contains("active")) {
+  //   alert(`E-mail: ${emailInput.value}\nPassword: ${pswrdInput.value}`);
+  //   e.preventDefault();
+  //   form.reset();
+  // }
+  // e.preventDefault();
+  alert(`E-mail: ${emailInput.value}\nPassword: ${pswrdInput.value}`);
   e.preventDefault();
+  form.reset();
 });
 
 regBtn.addEventListener("click", (e) => {
@@ -91,5 +94,3 @@ function toggleClasses() {
   toHide.forEach((el) => el.classList.toggle("active"));
   submit.classList.toggle("active");
 }
-
-// перенести футер из тревел2
