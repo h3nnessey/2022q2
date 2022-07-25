@@ -17,7 +17,7 @@ const ifReg = {
 };
 const noReg = {
   title: "Create account",
-  submit: "Sign up",
+  submit: "Sign Up",
   regText: "Already have an account? ",
   regLink: "Log in",
 };
@@ -26,7 +26,7 @@ const noReg = {
   btn.addEventListener("click", () => {
     showPopup();
     popup.classList.contains("active")
-      ? initCreatePopup(toChange)
+      ? initSignUpPopup(toChange)
       : initLoginPopup(toChange);
   });
 });
@@ -44,7 +44,7 @@ regBtn.addEventListener("click", (e) => {
   e.stopPropagation();
   toggleClasses();
   popup.classList.contains("active")
-    ? initCreatePopup(toChange)
+    ? initSignUpPopup(toChange)
     : initLoginPopup(toChange);
 });
 
@@ -52,7 +52,7 @@ popupWrap.addEventListener("click", (e) => {
   if (e.target.className === "popup__wrapper") {
     hidePopup();
     if (popup.classList.contains("active")) {
-      initCreatePopup(toChange);
+      initSignUpPopup(toChange);
       toggleClasses();
     } else {
       initLoginPopup(toChange);
@@ -67,7 +67,7 @@ function initLoginPopup([title, submit, regText, regLink]) {
   regLink.textContent = ifReg.regLink;
 }
 
-function initCreatePopup([title, submit, regText, regLink]) {
+function initSignUpPopup([title, submit, regText, regLink]) {
   title.textContent = noReg.title;
   submit.textContent = noReg.submit;
   regText.textContent = noReg.regText;
@@ -92,5 +92,4 @@ function toggleClasses() {
   submit.classList.toggle("active");
 }
 
-// сделать мобилу под 390px (почти)
-// поменять метод позиционирования, чтобы зависил от вьюпорта
+// перенести футер из тревел2

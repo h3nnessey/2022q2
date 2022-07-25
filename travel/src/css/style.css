@@ -394,6 +394,7 @@ html {
 .photo__wrapper {
   position: relative;
   flex: 1 0 800px;
+  cursor: pointer;
 }
 
 /* ------- */
@@ -658,7 +659,7 @@ html {
   background: linear-gradient(177.09deg, #ffffff 6.15%, #0d606f 202.69%);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 16px;
-  padding: 25px 45px;
+  padding: 25px 45px 23px 45px;
   width: 650px;
   position: absolute;
   top: -800px;
@@ -669,7 +670,8 @@ html {
 @keyframes popup-move-bottom {
   0% {
     top: -800px;
-  } 100% {
+  }
+  100% {
     top: 7%;
   }
 }
@@ -677,7 +679,8 @@ html {
 @keyframes popup-move-top {
   0% {
     top: 7%;
-  } 100% {
+  }
+  100% {
     top: -800px;
   }
 }
@@ -778,6 +781,9 @@ html {
   font-weight: normal;
   color: #0d606f;
 }
+.input:focus {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
 
 .email-input {
   margin-bottom: 20px;
@@ -803,6 +809,11 @@ html {
     0px 2px 3px rgba(13, 96, 111, 0.16);
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.form__submit:hover {
+  background-color: #0d6f49;
+  transition: 0.3s;
 }
 
 .popup__forgot {
@@ -839,6 +850,7 @@ html {
   font-weight: 700;
   font-size: 15px;
   line-height: 18px;
+  letter-spacing: 0.1px;
   color: rgba(13, 96, 111, 0.5);
   text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
 }
@@ -848,20 +860,57 @@ html {
 }
 
 .form__submit.to-change.active {
-  margin-bottom: 26px;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 390px) {
+  .popup__wrapper {
+    overflow: hidden;
+  }
   .popup {
-    width: 390px;
+    width: 360px;
     padding: 15px 0;
   }
   .popup__container {
-    width: 375px;
+    width: 335px;
     margin: 0 auto;
   }
+  .popup__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .popup__sign-in {
+    padding: 10px 0;
+    font-size: 15px;
+  }
   .sign-in-google {
-    padding: 15px 0;
+    margin-bottom: 10px;
+  }
+  .input-title {
+    font-size: 15px;
+  }
+  .input {
+    line-height: 46px;
+    font-size: 15px;
+  }
+  .email-input {
+    margin-bottom: 10px;
+  }
+  .pswrd-input {
+    margin-bottom: 15px;
+  }
+  .form__submit {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  .popup__forgot {
+    margin-bottom: 10px;
+  }
+  .popup__link {
+    font-size: 13px;
+  }
+  .register__text {
+    font-size: 13px;
   }
 }
 
