@@ -360,7 +360,6 @@ html {
   gap: 60px;
   transition: 0.3s;
   justify-content: center;
-  /* overflow: hidden; */
 }
 
 .controls.left {
@@ -1084,7 +1083,6 @@ html {
     position: relative;
     justify-content: flex-start;
     padding: 0 15px;
-    /* transform: translateX(0px); */
   }
 
   .slider__arrow-left,
@@ -1110,6 +1108,7 @@ html {
 
   .photo__wrapper {
     flex: 1 0 360px;
+    cursor: default;
   }
 
   #destinations
