@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,18 +9,21 @@
   <link rel="stylesheet" href="css/style.css" />
   <title>momentum</title>
 </head>
+
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-controls">
+      <audio src="" class="audio"></audio>
+      <div class="player-controls" style="flex-wrap: wrap; row-gap: 20px;">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
+        <input type="range" class="audio-volume">
       </div>
       <ul class="play-list"></ul>
     </div>
     <div class="weather">
-      <input type="text" class="city" value="Perm"/>
+      <input type="text" class="city" value="Minsk" />
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">
@@ -39,7 +43,7 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" placeholder="Guest"/>
+      <input type="text" class="name" placeholder="Guest" />
     </div>
   </main>
   <footer class="footer">
@@ -52,5 +56,9 @@
   <script src="js/date.js"></script>
   <script src="js/weather.js"></script>
   <script src="js/quotes.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/playList.js" type="module"></script>
+  <script src="js/player.js" type="module"></script>
 </body>
+
 </html>
