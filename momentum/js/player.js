@@ -6,10 +6,11 @@ const playBtn = document.querySelector('.play');
 const nextBtn = document.querySelector('.play-next');
 const prevBtn = document.querySelector('.play-prev');
 const volume = document.querySelector('.audio-volume');
-const volumeBtn = document.querySelector('.volume-btn'); // заменить
+const volumeBtn = document.querySelector('.volume-btn');
 const currentTime = document.querySelector('.current-time');
 const duration = document.querySelector('.duration')
 const progress = document.querySelector('.progress-bar');
+const title = document.querySelector('.audio-title')
 
 let songIndex = 0,
     currentVolume;
@@ -23,6 +24,7 @@ playList.forEach((el) => {
 
 function loadSong(songIndex) {
     audio.src = playList[songIndex].src;
+    title.textContent = playList[songIndex].title;
     setActive(songIndex);
 }
 loadSong(songIndex);
@@ -106,11 +108,14 @@ function setTime() {
     } else {
         currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime))}`;
     }
-    duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
-    updateProgress()
+    if (isNaN(time)) {
+        duration.textContent = '00:00';
+    } else {
+        duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
+    }
+    updateProgress();
     setTimeout(setTime, 1000)
-} // refactor this shit
-
+}
 
 function updateProgress() {
     let progressPercent = Math.floor((audio.currentTime / audio.duration) * 100);
@@ -121,24 +126,11 @@ function setProgress() {
     audio.currentTime = (progress.value / 100) * audio.duration;
 }
 
-// function setStorage() {
-//     localStorage.setItem('volume', audio.volume.toString())
-// }
-
-// function getStorage() {
-//     let volumeValue = localStorage.getItem('volume');
-//     audio.volume = +volumeValue;
-//     volume.value = +volumeValue * 100;
-// }
-
-
 progress.addEventListener('input', setProgress)
-audio.addEventListener('loadedmetadata', setTime)
+audio.addEventListener('loadedmetadata', setTime);
 playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
 audio.addEventListener('ended', playNext);
 volume.addEventListener('input', setVolume);
 volumeBtn.addEventListener('click', toggleVolume);
-// window.addEventListener('beforeunload', setStorage)
-// window.addEventListener('load', getStorage);
