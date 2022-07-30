@@ -6,6 +6,13 @@ const playBtn = document.querySelector('.play');
 const nextBtn = document.querySelector('.play-next');
 const prevBtn = document.querySelector('.play-prev');
 const volume = document.querySelector('.audio-volume');
+const toggleBtn = document.querySelector('.range-label');
+const currentTime = document.querySelector('.current-time');
+const duration = document.querySelector('.duration')
+const progress = document.querySelector('.progress-bar');
+
+let songIndex = 0,
+    currentVolume;
 
 playList.forEach((el) => {
     const li = document.createElement('li');
@@ -13,8 +20,6 @@ playList.forEach((el) => {
     li.textContent = el.title;
     playListElement.append(li);
 });
-
-let songIndex = 0;
 
 function loadSong(songIndex) {
     audio.src = playList[songIndex].src;
@@ -52,26 +57,70 @@ function playPrev() {
 
 function setActive(songIndex) {
     playListElement.childNodes.forEach((el, idx) => {
-        if (idx !== songIndex) {
-            el.classList.remove('item-active');
-        } else {
-            el.classList.add('item-active');
-        }
+        idx !== songIndex ? el.classList.remove('item-active') : el.classList.add('item-active');
     });
 }
 
-playBtn.addEventListener('click', () => {
-    const isPlay = playBtn.classList.contains('pause');
-    if (isPlay) {
-        pauseSong();
-    } else {
-        playSong();
-    }
-});
+function toggleSound() {
+    playBtn.classList.contains('pause') ? pauseSong() : playSong();
+}
 
+function setVolume() {
+    audio.volume = volume.value / 100;
+    currentVolume = audio.volume;
+}
+
+function toggleVolume() {
+    audio.volume !== 0 ? (audio.volume = 0) : (audio.volume = currentVolume);
+}
+
+function setPadStart(el) {
+    return el.toString().padStart(2, '0')
+}
+
+function setTime() {
+    const time = audio.duration;
+    const minutes = Math.floor(time / 60);
+    const currentMinutes = Math.floor(audio.currentTime / 60);
+    const currTime = audio.currentTime;
+    if (currTime > 59) {
+        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime - (currentMinutes * 60)))}`;
+    } else {
+        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime))}`;
+    }
+    duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
+    updateProgress()
+    setTimeout(setTime, 1000)
+} // refactor this shit
+
+
+function updateProgress() {
+    let progressPercent = Math.floor((audio.currentTime / audio.duration) * 100);
+    progress.value = progressPercent
+}
+
+function setProgress() {
+    audio.currentTime = (progress.value / 100) * audio.duration;
+}
+
+function setStorage() {
+    localStorage.setItem('volume', audio.volume.toString())
+}
+
+function getStorage() {
+    let test = localStorage.getItem('volume');
+    audio.volume = +test;
+    volume.value = +test * 100;
+}
+
+
+progress.addEventListener('change', setProgress)
+audio.addEventListener('loadedmetadata', setTime)
+playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
 audio.addEventListener('ended', playNext);
-volume.addEventListener('input', () => {
-    audio.volume = +volume.value / 100;
-});
+volume.addEventListener('input', setVolume);
+toggleBtn.addEventListener('click', toggleVolume);
+window.addEventListener('beforeunload', setStorage)
+window.addEventListener('load', getStorage);
