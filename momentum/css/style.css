@@ -31,12 +31,46 @@ body {
   padding: 20px;
 }
 
+.player {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  max-height: 500px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .player-controls {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 120px;
-  margin-bottom: 28px;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.audio-about {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.volume-btn {
+  width: 18px;
+  height: 18px;
+  background: none;
+  outline: none;
+  border: none;
+  background: url("../assets/svg/volume-up.svg") 50% 50% / cover no-repeat;
+  filter: invert(100%);
+  opacity: 0.8;
+  cursor: pointer;
+  transition: .3s;  
+}
+
+.volume-btn.muted {
+  background: url("../assets/svg/volume-off.svg") 50% 50% / cover no-repeat;
+}
+
+.volume-btn:hover, .volume-btn.muted:hover {
+  opacity: 1;
 }
 
 .play-list {
@@ -51,6 +85,13 @@ body {
   opacity: .8;
   cursor: pointer;
   transition: .3s;
+}
+
+.audio-time {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .play-item:hover {
@@ -263,41 +304,6 @@ body {
 .author {
   min-height: 20px;
 }
-/* УДАЛИТЬ */
-.range-label {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  cursor: pointer;
-  color: white;
-}
-
-.progess-bar {
-  background-color: red;
-}
-
-.range-label::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0 5px purple;
-}
-
-.audio-time {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: space-between;
-}
-/* ------------------ */
 
 @media (max-width: 768px) {
   .time {

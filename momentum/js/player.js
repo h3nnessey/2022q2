@@ -6,7 +6,7 @@ const playBtn = document.querySelector('.play');
 const nextBtn = document.querySelector('.play-next');
 const prevBtn = document.querySelector('.play-prev');
 const volume = document.querySelector('.audio-volume');
-const toggleBtn = document.querySelector('.range-label');
+const volumeBtn = document.querySelector('.volume-btn'); // заменить
 const currentTime = document.querySelector('.current-time');
 const duration = document.querySelector('.duration')
 const progress = document.querySelector('.progress-bar');
@@ -68,10 +68,28 @@ function toggleSound() {
 function setVolume() {
     audio.volume = volume.value / 100;
     currentVolume = audio.volume;
+    volume.value = audio.volume * 100;
+    if (audio.volume === 0) {
+        volumeBtn.classList.add('muted');
+    } else {
+        volumeBtn.classList.remove('muted')
+    }
 }
 
 function toggleVolume() {
-    audio.volume !== 0 ? (audio.volume = 0) : (audio.volume = currentVolume);
+    if (audio.volume !== 0) {
+        currentVolume = audio.volume
+        audio.volume = 0;
+        volumeBtn.classList.add('muted')
+    } else {
+        audio.volume = currentVolume
+        volumeBtn.classList.remove('muted')
+    }
+    if (currentVolume === 0) {
+        audio.volume = 0.3;
+        volume.value = 30;
+        volume.classList.toggle('muted')
+    }
 }
 
 function setPadStart(el) {
@@ -103,24 +121,24 @@ function setProgress() {
     audio.currentTime = (progress.value / 100) * audio.duration;
 }
 
-function setStorage() {
-    localStorage.setItem('volume', audio.volume.toString())
-}
+// function setStorage() {
+//     localStorage.setItem('volume', audio.volume.toString())
+// }
 
-function getStorage() {
-    let test = localStorage.getItem('volume');
-    audio.volume = +test;
-    volume.value = +test * 100;
-}
+// function getStorage() {
+//     let volumeValue = localStorage.getItem('volume');
+//     audio.volume = +volumeValue;
+//     volume.value = +volumeValue * 100;
+// }
 
 
-progress.addEventListener('change', setProgress)
+progress.addEventListener('input', setProgress)
 audio.addEventListener('loadedmetadata', setTime)
 playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
 audio.addEventListener('ended', playNext);
 volume.addEventListener('input', setVolume);
-toggleBtn.addEventListener('click', toggleVolume);
-window.addEventListener('beforeunload', setStorage)
-window.addEventListener('load', getStorage);
+volumeBtn.addEventListener('click', toggleVolume);
+// window.addEventListener('beforeunload', setStorage)
+// window.addEventListener('load', getStorage);
