@@ -263,6 +263,41 @@ body {
 .author {
   min-height: 20px;
 }
+/* УДАЛИТЬ */
+.range-label {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  color: white;
+}
+
+.progess-bar {
+  background-color: red;
+}
+
+.range-label::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px purple;
+}
+
+.audio-time {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+/* ------------------ */
 
 @media (max-width: 768px) {
   .time {

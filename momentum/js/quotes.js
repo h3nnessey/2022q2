@@ -13,9 +13,6 @@
                 author.textContent = data[currentQuote]['author'];
             });
     };
-    getQuotes();
-
-    quoteBtn.addEventListener('click', () => {
-        setTimeout(getQuotes, 100);
-    });
+    getQuotes()
+    quoteBtn.addEventListener('click', () => setTimeout(getQuotes, 100));
 })();

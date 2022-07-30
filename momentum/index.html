@@ -13,12 +13,18 @@
 <body>
   <header class="header">
     <div class="player">
-      <audio src="" class="audio"></audio>
+      <audio src="" class="audio" preload="metadata"></audio>
       <div class="player-controls" style="flex-wrap: wrap; row-gap: 20px;">
         <button class="play-prev player-icon"></button>
         <button class="play player-icon"></button>
         <button class="play-next player-icon"></button>
-        <input type="range" class="audio-volume">
+        <div class="audio-time">
+          <div class="current-time">00:00</div>
+          <div class="duration">00:00</div>
+        </div>
+        <input type="range" min="1" max="100" class="progress-bar" value="0">
+        <input type="range" min="1" max="100" value="100" class="audio-volume" id="range">
+        <label for="#range" class="range-label"></label>
       </div>
       <ul class="play-list"></ul>
     </div>

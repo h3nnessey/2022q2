@@ -6,25 +6,41 @@
     const cityInput = document.querySelector('.city');
     const wind = document.querySelector('.wind');
     const humidity = document.querySelector('.humidity');
+    const weatherError = document.querySelector('.weather-error');
 
     const getWeather = async () => {
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&lang=en&appid=${API_KEY}&units=metric`;
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
+                weatherError.textContent = '';
                 weatherIco.className = 'weather-icon owf';
                 weatherIco.classList.add(`owf-${data.weather[0].id}`);
                 temperature.textContent = `${Math.floor(data.main.temp)}°C`;
-                weatherDesc.textContent = data.weather[0].description;
-                wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`
-                humidity.textContent = `Humidity: ${Math.floor(data.main.humidity)}%`
+                weatherDesc.textContent = capitalize(data.weather[0].description);
+                wind.textContent = `Wind speed: ${Math.floor(data.wind.speed)} m/s`;
+                humidity.textContent = `Humidity: ${Math.floor(data.main.humidity)}%`;
             })
+            .catch(catchErr);
     };
-    getWeather();
 
-    cityInput.addEventListener('change', () => {
-        getWeather();
-    });
+    function catchErr() {
+        weatherError.textContent = `Error! Cannot find weather for ${cityInput.value}.`;
+        weatherIco.className = '';
+        temperature.textContent = '';
+        weatherDesc.textContent = '';
+        wind.textContent = '';
+        humidity.textContent = '';
+    }
+
+    function capitalize(word) {
+        return word
+            .split(' ')
+            .map((word) => {
+                return word[0].toUpperCase() + word.slice(1);
+            })
+            .join(' ');
+    }
 
     function setLocalStorage() {
         localStorage.setItem('city', cityInput.value);
@@ -37,6 +53,10 @@
         }
     }
 
+    cityInput.addEventListener('change', getWeather);
     window.addEventListener('beforeunload', setLocalStorage);
-    window.addEventListener('load', getLocalStorage);
+    window.addEventListener('load', () => {
+        getLocalStorage();
+        getWeather();
+    });
 })();
