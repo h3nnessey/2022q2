@@ -9,7 +9,8 @@ const volume = document.querySelector('.audio-volume');
 const volumeBtn = document.querySelector('.volume-btn');
 const currentTime = document.querySelector('.current-time');
 const duration = document.querySelector('.duration')
-const progress = document.querySelector('.progress-bar');
+const progressContainer = document.querySelector('.progress-container');
+const progress = document.querySelector('.progress');
 const title = document.querySelector('.audio-title')
 
 let songIndex = 0,
@@ -99,8 +100,8 @@ function setPadStart(el) {
 }
 
 function setTime() {
-    const time = audio.duration;
-    const minutes = Math.floor(time / 60);
+    // const time = audio.duration;
+    // const minutes = Math.floor(time / 60);
     const currentMinutes = Math.floor(audio.currentTime / 60);
     const currTime = audio.currentTime;
     if (currTime > 59) {
@@ -108,29 +109,52 @@ function setTime() {
     } else {
         currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime))}`;
     }
-    if (isNaN(time)) {
-        duration.textContent = '00:00';
-    } else {
-        duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
-    }
-    updateProgress();
+    duration.textContent = playList[songIndex].duration
+    // if (isNaN(time)) {
+    //     duration.textContent = '00:00';
+    // } else {
+    //     duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
+    // }
     setTimeout(setTime, 1000)
 }
+// duration в json)))))
 
-function updateProgress() {
-    let progressPercent = Math.floor((audio.currentTime / audio.duration) * 100);
-    progress.value = progressPercent
+function updateProgress(e) {
+    const {duration, currentTime} = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
+    progress.style.width = `${progressPercent}%`;
 }
 
-function setProgress() {
-    audio.currentTime = (progress.value / 100) * audio.duration;
+function setProgress(e) {
+    const width = this.clientWidth;
+    const clickX = e.offsetX;
+    const duration = audio.duration;
+    audio.currentTime = (clickX / width) * duration;
 }
 
-progress.addEventListener('input', setProgress)
-audio.addEventListener('loadedmetadata', setTime);
+function setStorage() {
+    localStorage.setItem('vol', (audio.volume * 100).toString())
+}
+
+function getStorage() {
+    const val = localStorage.getItem('vol');
+    if (val) {
+        volume.value = val;
+    }
+}
+
+audio.addEventListener('loadedmetadata', setTime)
+audio.addEventListener('timeupdate', updateProgress);
+audio.addEventListener('ended', playNext);
+progressContainer.addEventListener('click', setProgress);
 playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
-audio.addEventListener('ended', playNext);
 volume.addEventListener('input', setVolume);
+volume.addEventListener('change', setVolume);
 volumeBtn.addEventListener('click', toggleVolume);
+window.addEventListener('beforeunload', setStorage);
+window.addEventListener('load', () => {
+    getStorage();
+    setVolume();
+})
