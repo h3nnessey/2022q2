@@ -1,7 +1,7 @@
 import playList from './playList.js';
 
 const playListElement = document.querySelector('.play-list');
-const audio = document.querySelector('.audio');
+const audio = document.createElement('audio');
 const playBtn = document.querySelector('.play');
 const nextBtn = document.querySelector('.play-next');
 const prevBtn = document.querySelector('.play-prev');
@@ -9,12 +9,12 @@ const volume = document.querySelector('.audio-volume');
 const volumeBtn = document.querySelector('.volume-btn');
 const currentTime = document.querySelector('.current-time');
 const duration = document.querySelector('.duration');
-const progressContainer = document.querySelector('.progress-container');
 const progress = document.querySelector('.progress');
 const title = document.querySelector('.audio-title');
 
 let songIndex = 0,
-    currentVolume;
+    currentVolume,
+    timer;
 
 playList.forEach((el, idx) => {
     const li = document.createElement('li');
@@ -29,8 +29,14 @@ playList.forEach((el, idx) => {
 });
 
 function loadSong(songIndex) {
+    clearInterval(timer);
+    currentTime.textContent = '00:00';
+    duration.textContent = '00:00';
+    progress.value = 0;
     audio.src = playList[songIndex].src;
+    audio.load();
     title.textContent = playList[songIndex].title;
+    timer = setInterval(setTime, 1000);
     setActive(songIndex);
 }
 loadSong(songIndex);
@@ -61,6 +67,31 @@ function playPrev() {
     }
     loadSong(songIndex);
     playSong();
+}
+
+function setTime() {
+    let currVal = 0;
+    if (!isNaN(audio.duration)) {
+        currVal = audio.currentTime * (100 / audio.duration);
+        progress.value = currVal;
+        const currentMinutes = Math.floor(audio.currentTime / 60);
+        const currTime = audio.currentTime;
+        if (currTime > 59) {
+            currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
+                Math.floor(currTime - currentMinutes * 60)
+            )}`;
+        } else {
+            currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
+                Math.floor(currTime)
+            )}`;
+        }
+        duration.textContent = playList[songIndex].duration;
+    }
+}
+
+function updateProgress() {
+    const currTime = audio.duration * (progress.value / 100);
+    audio.currentTime = currTime;
 }
 
 function setActive(songIndex) {
@@ -106,33 +137,6 @@ function setPadStart(el) {
     return el.toString().padStart(2, '0');
 }
 
-function setTime() {
-    const currentMinutes = Math.floor(audio.currentTime / 60);
-    const currTime = audio.currentTime;
-    if (currTime > 59) {
-        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
-            Math.floor(currTime - currentMinutes * 60)
-        )}`;
-    } else {
-        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
-            Math.floor(currTime)
-        )}`;
-    }
-    duration.textContent = playList[songIndex].duration;
-    setTimeout(setTime, 1000);
-}
-
-function updateProgress() {
-    const progressPercent = (audio.currentTime / audio.duration) * 100;
-    progress.style.width = `${progressPercent}%`;
-}
-
-function setProgress(e) {
-    const width = this.clientWidth;
-    const clickX = e.offsetX;
-    audio.currentTime = (clickX / width) * audio.duration;
-}
-
 function setStorage() {
     localStorage.setItem('vol', (audio.volume * 100).toString());
 }
@@ -145,9 +149,8 @@ function getStorage() {
 }
 
 audio.addEventListener('loadedmetadata', setTime);
-audio.addEventListener('timeupdate', updateProgress);
 audio.addEventListener('ended', playNext);
-progressContainer.addEventListener('click', setProgress);
+progress.addEventListener('change', updateProgress);
 playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
