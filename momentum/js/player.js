@@ -8,18 +8,23 @@ const prevBtn = document.querySelector('.play-prev');
 const volume = document.querySelector('.audio-volume');
 const volumeBtn = document.querySelector('.volume-btn');
 const currentTime = document.querySelector('.current-time');
-const duration = document.querySelector('.duration')
+const duration = document.querySelector('.duration');
 const progressContainer = document.querySelector('.progress-container');
 const progress = document.querySelector('.progress');
-const title = document.querySelector('.audio-title')
+const title = document.querySelector('.audio-title');
 
 let songIndex = 0,
     currentVolume;
 
-playList.forEach((el) => {
+playList.forEach((el, idx) => {
     const li = document.createElement('li');
     li.classList.add('play-item');
-    li.textContent = el.title;
+    [li.textContent, li.id] = [el.title, idx];
+    li.addEventListener('click', () => {
+        songIndex = +li.id;
+        loadSong(songIndex);
+        playSong();
+    });
     playListElement.append(li);
 });
 
@@ -72,68 +77,64 @@ function setVolume() {
     audio.volume = volume.value / 100;
     currentVolume = audio.volume;
     volume.value = audio.volume * 100;
-    if (audio.volume === 0) {
+    if (!audio.volume) {
         volumeBtn.classList.add('muted');
     } else {
-        volumeBtn.classList.remove('muted')
+        volumeBtn.classList.remove('muted');
     }
 }
 
 function toggleVolume() {
-    if (audio.volume !== 0) {
-        currentVolume = audio.volume
+    if (audio.volume) {
+        currentVolume = audio.volume;
         audio.volume = 0;
-        volumeBtn.classList.add('muted')
+        volume.value = 0;
+        volumeBtn.classList.add('muted');
     } else {
-        audio.volume = currentVolume
-        volumeBtn.classList.remove('muted')
+        audio.volume = currentVolume;
+        volume.value = currentVolume * 100;
+        volumeBtn.classList.remove('muted');
     }
-    if (currentVolume === 0) {
+    if (!currentVolume) {
         audio.volume = 0.3;
         volume.value = 30;
-        volume.classList.toggle('muted')
+        volume.classList.toggle('muted');
     }
 }
 
 function setPadStart(el) {
-    return el.toString().padStart(2, '0')
+    return el.toString().padStart(2, '0');
 }
 
 function setTime() {
-    // const time = audio.duration;
-    // const minutes = Math.floor(time / 60);
     const currentMinutes = Math.floor(audio.currentTime / 60);
     const currTime = audio.currentTime;
     if (currTime > 59) {
-        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime - (currentMinutes * 60)))}`;
+        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
+            Math.floor(currTime - currentMinutes * 60)
+        )}`;
     } else {
-        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(Math.floor(currTime))}`;
+        currentTime.textContent = `${setPadStart(currentMinutes)}:${setPadStart(
+            Math.floor(currTime)
+        )}`;
     }
-    duration.textContent = playList[songIndex].duration
-    // if (isNaN(time)) {
-    //     duration.textContent = '00:00';
-    // } else {
-    //     duration.textContent = `${setPadStart(minutes)}:${setPadStart(Math.floor(time - minutes * 60))}`;
-    // }
-    setTimeout(setTime, 1000)
+    duration.textContent = playList[songIndex].duration;
+    setTimeout(setTime, 1000);
 }
-// duration в json)))))
 
-function updateProgress(e) {
-    const {duration, currentTime} = e.srcElement;
-    const progressPercent = (currentTime / duration) * 100;
+function updateProgress() {
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
     progress.style.width = `${progressPercent}%`;
 }
 
 function setProgress(e) {
     const width = this.clientWidth;
     const clickX = e.offsetX;
-    const duration = audio.duration;
-    audio.currentTime = (clickX / width) * duration;
+    audio.currentTime = (clickX / width) * audio.duration;
 }
 
 function setStorage() {
-    localStorage.setItem('vol', (audio.volume * 100).toString())
+    localStorage.setItem('vol', (audio.volume * 100).toString());
 }
 
 function getStorage() {
@@ -143,7 +144,7 @@ function getStorage() {
     }
 }
 
-audio.addEventListener('loadedmetadata', setTime)
+audio.addEventListener('loadedmetadata', setTime);
 audio.addEventListener('timeupdate', updateProgress);
 audio.addEventListener('ended', playNext);
 progressContainer.addEventListener('click', setProgress);
@@ -157,4 +158,4 @@ window.addEventListener('beforeunload', setStorage);
 window.addEventListener('load', () => {
     getStorage();
     setVolume();
-})
+});

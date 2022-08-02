@@ -50,54 +50,43 @@ function updateLocalStorage() {
 }
 
 function filterTodos() {
-    const activeTodos = todos.length && todos.filter((todo) => todo.completed === false);
-    const completedTodos = todos.length && todos.filter((todo) => todo.completed === true);
-    todos = [...activeTodos, ...completedTodos];
+    if (todos.length > 0) {
+        const activeTodos = todos.filter((todo) => todo.completed === false);
+        const completedTodos = todos.filter((todo) => todo.completed === true);
+        todos = [...activeTodos, ...completedTodos];
+    }
 }
 
 function completeTodo(idx) {
     todos[idx].completed = !todos[idx].completed;
-    if (todos[idx].completed) {
-        todoElements[idx].classList.add('checked');
-    } else {
-        todoElements[idx].classList.remove('checked');
-    }
-    renderTodos();
+    todoElements[idx].classList.toggle('checked');
+    updateTodos();
 }
 
 function deleteTodo(idx) {
     todoElements[idx].classList.add('delete');
     setTimeout(() => {
         todos.splice(idx, 1);
-        renderTodos();
+        updateTodos();
     }, 500);
 }
 
-function renderTodos() {
+function updateTodos() {
     updateLocalStorage();
     setTodos();
 }
 
-addTodoBtn.addEventListener('click', () => {
+function renderTodos() {
     if (todoInput.value === '') return;
     todos.push(new Todo(todoInput.value));
-    renderTodos();
+    updateTodos();
     todoInput.value = '';
-});
+}
 
+addTodoBtn.addEventListener('click', renderTodos);
 todoInput.addEventListener('keypress', (e) => {
-    if (e.keyCode === 13) {
-        if (todoInput.value === '') return;
-        todos.push(new Todo(todoInput.value));
-        renderTodos();
-        todoInput.value = '';
-    }
+    if (e.keyCode === 13) renderTodos();
+});
+[showBtn, hideBtn].forEach((btn) => {
+    btn.addEventListener('click', () => todoWrap.classList.toggle('hide'))
 })
-
-showBtn.addEventListener('click', () => {
-    todoWrap.classList.toggle('hide');
-});
-
-hideBtn.addEventListener('click', () => {
-    todoWrap.classList.toggle('hide');
-});
