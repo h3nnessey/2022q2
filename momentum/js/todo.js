@@ -2,7 +2,7 @@ const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
 const addTodoBtn = document.querySelector('.todo-add-btn');
 const showBtn = document.querySelector('.todo-show');
-const todoWrap = document.querySelector('.todo');
+const todoWrap = document.querySelector('.todo-wrapper');
 const hideBtn = document.querySelector('.todo-hide');
 
 let todos = !localStorage.getItem('todos') ? [] : JSON.parse(localStorage.getItem('todos')),
@@ -19,7 +19,7 @@ function createTodo(todo, idx) {
     return `<li class="list-item ${todo.completed ? 'checked' : ''}" id="${idx}">
     <input type="checkbox" class="list-item-checkbox" ${todo.completed ? 'checked' : ''}>
     <div class="list-item-description">${todo.description}</div>
-    <button class="list-item-delete">Del</button>
+    <button class="list-item-delete"></button>
 </li>`;
 }
 
@@ -87,6 +87,15 @@ addTodoBtn.addEventListener('click', renderTodos);
 todoInput.addEventListener('keypress', (e) => {
     if (e.keyCode === 13) renderTodos();
 });
+
 [showBtn, hideBtn].forEach((btn) => {
-    btn.addEventListener('click', () => todoWrap.classList.toggle('hide'))
+    btn.addEventListener('click', () => {
+        todoWrap.classList.toggle('active');
+    });
+})
+
+todoWrap.addEventListener('click', (e) => {
+    if (e.target.classList.contains('todo-wrapper')) {
+        todoWrap.classList.toggle('active')
+    }
 })

@@ -11,7 +11,7 @@
                 currentQuote = Math.floor(Math.random() * 102) + 1;
                 quote.textContent = data[currentQuote]['quote'];
                 author.textContent = data[currentQuote]['author'];
-            });
+            }).catch((err) => alert(`${err}`));
     };
     getQuotes()
     quoteBtn.addEventListener('click', () => setTimeout(getQuotes, 100));

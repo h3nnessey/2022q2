@@ -1,7 +1,7 @@
 import playList from './playList.js';
 
+const audio = new Audio();
 const playListElement = document.querySelector('.play-list');
-const audio = document.createElement('audio');
 const playBtn = document.querySelector('.play');
 const nextBtn = document.querySelector('.play-next');
 const prevBtn = document.querySelector('.play-prev');
@@ -11,6 +11,8 @@ const currentTime = document.querySelector('.current-time');
 const duration = document.querySelector('.duration');
 const progress = document.querySelector('.progress');
 const title = document.querySelector('.audio-title');
+const subtitle = document.querySelector('.audio-subtitle');
+const counter = document.querySelector('.audio-counter');
 
 let songIndex = 0,
     currentVolume,
@@ -19,7 +21,7 @@ let songIndex = 0,
 playList.forEach((el, idx) => {
     const li = document.createElement('li');
     li.classList.add('play-item');
-    [li.textContent, li.id] = [el.title, idx];
+    [li.textContent, li.id] = [`${el.title} - ${el.subtitle}`, idx];
     li.addEventListener('click', () => {
         songIndex = +li.id;
         loadSong(songIndex);
@@ -36,6 +38,8 @@ function loadSong(songIndex) {
     audio.src = playList[songIndex].src;
     audio.load();
     title.textContent = playList[songIndex].title;
+    subtitle.textContent = playList[songIndex].subtitle;
+    counter.textContent = `#${songIndex + 1}/${playList.length}`;
     timer = setInterval(setTime, 1000);
     setActive(songIndex);
 }
@@ -89,7 +93,7 @@ function setTime() {
     }
 }
 
-function updateProgress() {
+function updateProgress(e) {
     const currTime = audio.duration * (progress.value / 100);
     audio.currentTime = currTime;
 }
@@ -150,7 +154,7 @@ function getStorage() {
 
 audio.addEventListener('loadedmetadata', setTime);
 audio.addEventListener('ended', playNext);
-progress.addEventListener('change', updateProgress);
+progress.addEventListener('input', updateProgress);
 playBtn.addEventListener('click', toggleSound);
 nextBtn.addEventListener('click', playNext);
 prevBtn.addEventListener('click', playPrev);
