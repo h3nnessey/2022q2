@@ -85,7 +85,7 @@ body {
 .volume-btn {
     width: 18px;
     height: 18px;
-    margin-right: 5px;
+    margin-right: 10px;
     background: none;
     outline: none;
     border: none;
@@ -118,53 +118,63 @@ body {
     padding-right: 5px;
 }
 
-.progress,
-.audio-volume {
+.range-slider {
+    display: flex;
+    position: relative;
+    width: 100%;
+    user-select: none;
     opacity: 0.8;
-    transition: opacity 0.2s;
-    cursor: pointer;
-    height: 5px;
+    transition: opacity 0.3s;
 }
 
-.progress {
-    display: inline-block;
-    flex: 1 1 100%;
-}
-
-.progress:hover,
-.audio-volume:hover {
+.range-slider:hover {
     opacity: 1;
 }
 
-.player input[type='range'] {
+.slider {
     -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
     outline: none;
-    background: transparent;
-    mix-blend-mode: screen;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.575);
+    cursor: pointer;
 }
 
-.player input[type='range']::-webkit-slider-runnable-track {
-    background: rgba(255, 255, 255, 0.575);
-    height: 3px;
-    border-radius: 3px;
-}
-
-.player input[type='range']::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 10px;
-    width: 10px;
-    margin-top: -3px;
-    border-radius: 6px;
-    background: #aaa;
-    transition: 0.3s;
-}
-
-.player input[type='range']:hover::-webkit-slider-thumb {
-    filter: brightness(120%);
-}
-
-.player input[type='range']:active::-webkit-slider-thumb {
+.slider:active::-webkit-slider-thumb {
     cursor: grabbing;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    z-index: 3;
+    position: relative;
+}
+
+.slider-thumb {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.progress {
+    width: 50%;
+    height: 4px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    pointer-events: none;
 }
 
 .play-list::-webkit-scrollbar {

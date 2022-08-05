@@ -1,4 +1,5 @@
-const todoInput = document.querySelector('.todo-input');
+function todoApp() {
+    const todoInput = document.querySelector('.todo-input');
 const todoList = document.querySelector('.todo-list');
 const addTodoBtn = document.querySelector('.todo-add-btn');
 const showBtn = document.querySelector('.todo-show');
@@ -99,3 +100,6 @@ todoWrap.addEventListener('click', (e) => {
         todoWrap.classList.toggle('active')
     }
 })
+}
+
+export default todoApp;

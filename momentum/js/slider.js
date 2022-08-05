@@ -1,4 +1,4 @@
-(function () {
+function slider() {
     const slideNext = document.querySelector('.slide-next');
     const slidePrev = document.querySelector('.slide-prev');
     const [min, max] = [1, 20];
@@ -17,7 +17,7 @@
         }
         return 'evening';
     }
-    
+
     function getRandomNum(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -46,4 +46,6 @@
     window.addEventListener('load', setBg);
     slideNext.addEventListener('click', getSlideNext);
     slidePrev.addEventListener('click', getSlidePrev);
-})();
+}
+
+export default slider;

@@ -1,4 +1,4 @@
-(function () {
+function weather() {
     const API_KEY = '58fa19d4df4d1d9234ec77d0756c43f3';
     const weatherIco = document.querySelector('.weather-icon');
     const temperature = document.querySelector('.temperature');
@@ -59,4 +59,6 @@
         getLocalStorage();
         getWeather();
     });
-})();
+}
+
+export default weather;

@@ -4,7 +4,7 @@
     const author = document.querySelector('.author');
 
     const getQuotes = async () => {
-        const quotes = 'data/quotes.json';
+        const quotes = '../data/quotes.json';
         fetch(quotes)
             .then((response) => response.json())
             .then((data) => {

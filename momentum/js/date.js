@@ -1,4 +1,4 @@
-(function () {
+function date() {
     const timeElement = document.querySelector('.time');
     const dateElement = document.querySelector('.date');
     const greeting = document.querySelector('.greeting');
@@ -76,4 +76,6 @@
 
     window.addEventListener('beforeunload', setLocalStorage);
     window.addEventListener('load', getLocalStorage);
-})();
+}
+
+export default date;
