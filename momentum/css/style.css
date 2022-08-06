@@ -226,7 +226,7 @@ body {
 }
 
 .play-item.current {
-    color: gray;
+    color: white;
 }
 
 .play-item::before {
@@ -237,12 +237,14 @@ body {
     top: 48%;
     transform: translateY(-51%);
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.705);
 }
 
 .item-active::before {
     content: "\275A\275A";
-    color: rgba(255, 255, 255, 0.705);
+}
+
+.play-item {
+    color: grey;
 }
 
 .player-icon,
