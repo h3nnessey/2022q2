@@ -46,6 +46,7 @@ body {
     min-width: 300px;
     max-height: 500px;
     align-items: flex-start;
+    user-select: none;
 }
 
 .player-header {
@@ -73,6 +74,12 @@ body {
 
 .audio-counter {
     align-self: flex-start;
+    font-size: 14px;
+    color: grey;
+}
+
+.audio-counter::first-letter {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .player-controls {
@@ -116,6 +123,7 @@ body {
     width: 100%;
     overflow-y: auto;
     padding-right: 5px;
+    scroll-behavior: smooth;
 }
 
 .range-slider {
@@ -179,11 +187,16 @@ body {
 
 .play-list::-webkit-scrollbar {
     width: 7px;
+    display: none;
 }
 
 .play-list::-webkit-scrollbar-thumb {
     background-color: #999999;
     border-radius: 5px;
+}
+
+.play-list:hover::-webkit-scrollbar {
+    display: block;
 }
 
 .play-list::-webkit-scrollbar-track {
@@ -212,16 +225,24 @@ body {
     opacity: 1;
 }
 
+.play-item.current {
+    color: gray;
+}
+
 .play-item::before {
-    content: '\2713';
+    content: "\25B6";
     position: absolute;
+    display: inline-block;
     left: 0;
-    top: 2px;
+    top: 48%;
+    transform: translateY(-51%);
     font-weight: 900;
+    color: rgba(255, 255, 255, 0.705);
 }
 
 .item-active::before {
-    color: #c5b358;
+    content: "\275A\275A";
+    color: rgba(255, 255, 255, 0.705);
 }
 
 .player-icon,
@@ -523,12 +544,6 @@ body {
     cursor: pointer;
 }
 
-.quotes-block {
-    /* position: absolute;
-    bottom: 7%;
-    left: 50%;
-    transform: translateX(-50%); */
-}
 .change-quote {
     margin-bottom: 30px;
     background-image: url('../assets/svg/reload.svg');

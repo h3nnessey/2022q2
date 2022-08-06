@@ -15,15 +15,19 @@ function player() {
     let songIndex = 0,
         currentVolume,
         timer;
-
+        
     playList.forEach((el, idx) => {
         const li = document.createElement('li');
         li.classList.add('play-item');
         [li.textContent, li.id] = [`${el.title} - ${el.subtitle}`, idx];
-        li.addEventListener('click', () => {
-            songIndex = +li.id;
-            loadSong(songIndex);
-            playSong();
+        li.addEventListener('click', (e) => {
+            if (+e.target.id !== songIndex) {
+                songIndex = +e.target.id;
+                loadSong(songIndex);
+                playSong();
+            } else {
+                toggleSound(e);
+            }
         });
         playListElement.append(li);
     });
@@ -39,20 +43,26 @@ function player() {
         audio.load();
         title.textContent = playList[songIndex].title;
         subtitle.textContent = playList[songIndex].subtitle;
-        counter.textContent = `#${songIndex + 1}/${playList.length}`;
+        counter.textContent = `#${songIndex + 1} of ${playList.length}`;
+        setCurrentSong(songIndex);
+        playListElement.scrollTop =
+            playListElement.children[songIndex].offsetTop - playListElement.offsetTop;
         timer = setInterval(setTime, 1000);
-        setActive(songIndex);
     }
     loadSong(songIndex);
 
-    function playSong() {
+    function playSong(e) {
         audio.play();
         playBtn.classList.add('pause');
+        setActive(songIndex);
     }
 
-    function pauseSong() {
+    function pauseSong(e) {
         audio.pause();
         playBtn.classList.remove('pause');
+        if (e.target.classList.contains('item-active')) {
+            e.target.classList.remove('item-active');
+        }
     }
 
     function playNext() {
@@ -101,8 +111,14 @@ function player() {
         });
     }
 
-    function toggleSound() {
-        playBtn.classList.contains('pause') ? pauseSong() : playSong();
+    function setCurrentSong(songIndex) {
+        playListElement.childNodes.forEach((el, idx) => {
+            idx !== songIndex ? el.classList.remove('current') : el.classList.add('current');
+        });
+    }
+
+    function toggleSound(e) {
+        playBtn.classList.contains('pause') ? pauseSong(e) : playSong(e);
     }
 
     function setVolume() {
@@ -146,7 +162,7 @@ function player() {
 
     function setTimeOnTimeUpdate() {
         const currentAudioTime = Math.floor(audio.currentTime);
-        const timePercentage = `${(currentAudioTime / audio.duration) * 100}`;
+        const timePercentage = `${(currentAudioTime / audio.duration) * 100}%`;
         timeProgress.style.width = timePercentage;
         timeThumb.style.left = timePercentage;
     }
