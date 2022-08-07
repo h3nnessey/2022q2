@@ -60,8 +60,9 @@ function player() {
     function pauseSong(e) {
         audio.pause();
         playBtn.classList.remove('pause');
-        if (e.target.classList.contains('item-active')) {
-            e.target.classList.remove('item-active');
+        const currentSong = playListElement.children[songIndex];
+        if (currentSong.classList.contains('item-active')) {
+            currentSong.classList.remove('item-active');
         }
     }
 

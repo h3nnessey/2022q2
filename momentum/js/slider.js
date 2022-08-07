@@ -26,7 +26,7 @@ function slider() {
         const img = new Image();
         const timeOfDay = getTimeOfDay();
         const bgNum = randomNum.toString().padStart(2, '0');
-        img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
+        img.src = `https://raw.githubusercontent.com/h3nnessey/stage1-tasks/assets/images/${timeOfDay}/${bgNum}.jpg`;
         img.addEventListener(
             'load',
             () => (document.body.style.backgroundImage = `url(${img.src})`)
