@@ -89,25 +89,25 @@
               </div>
               <div class="settings-item__input bg-source-input">
                 <div class="checkbox-group">
-                  <div class="radio-title">Github</div>
                   <label for="api-github">
                     <input class="checkbox-input" type="radio" value="github" id="api-github" name="api" checked>
                     <div class="checkbox"></div>
                   </label>
+                  <div class="radio-title">Github</div>
                 </div>
                 <div class="checkbox-group">
-                  <div class="radio-title">Flickr</div>
                   <label for="api-flickr">
                     <input class="checkbox-input" type="radio" value="flickr" id="api-flickr" name="api">
                     <div class="checkbox"></div>
                   </label>
+                  <div class="radio-title">Flickr</div>
                 </div>
                 <div class="checkbox-group">
-                  <div class="radio-title">Unsplash</div>
                   <label for="api-unsplash">
                     <input class="checkbox-input" type="radio" value="unsplash" id="api-unsplash" name="api">
                     <div class="checkbox"></div>
                   </label>
+                  <div class="radio-title">Unsplash</div>
                 </div>
               </div>
             </div>
@@ -115,9 +115,9 @@
               <div class="settings-item__title">
                 Background tags:
               </div>
-              <div class="settings-item__input">
+              <div class="settings-item__input bg-tag-input">
                 <input type="text" id="bg-input" placeholder="Enter the tags separated by a space">
-                <button id="bg-btn">GET</button>
+                <button id="bg-btn"></button>
               </div>
             </div>
             <div class="settings-item">
@@ -188,13 +188,13 @@
         </div>
       </div>
       <div class="todo-wrapper">
-        <div class="todo hide">
+        <div class="todo">
           <button class="todo-hide"></button>
           <ul class="todo-list">
           </ul>
           <div class="todo-controls">
             <input type="text" class="todo-input" placeholder="">
-            <button class="todo-add-btn">Add</button>
+            <button class="todo-add-btn"></button>
           </div>
         </div>
 
@@ -202,6 +202,10 @@
     </div>
     <div class="footer-buttons">
       <button class="settings-show"></button>
+      <div class="links">
+        <a href="https://github.com/h3nnessey" target="_blank" class="github-link link"></a>
+        <a href="https://rs.school/js-stage0/" target="_blank" class="rss-link link"></a>
+      </div>
       <button class="todo-show widget">ToDo</button>
     </div>
   </footer>

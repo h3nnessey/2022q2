@@ -3,6 +3,7 @@ function slider() {
     const slidePrev = document.querySelector('.slide-prev');
     const bgSrc = document.querySelector('.bg-source-input');
     const bgInput = document.querySelector('#bg-input');
+    const bgBtn = document.querySelector('#bg-btn');
     const bgBtns = document.querySelectorAll('.bg-source-input input');
     const [min, max] = [1, 20];
     let randomNum = getRandomNum(min, max);
@@ -95,6 +96,12 @@ function slider() {
         if (isFlickr) flickr(bgTag);
         if (isUnsplash) unsplash(bgTag);
     });
+
+    bgBtn.addEventListener('click', () => {
+        bgTag = bgInput.value;
+        if (isFlickr) flickr(bgTag);
+        if (isUnsplash) unsplash(bgTag);
+    })
 
     bgSrc.addEventListener('change', (e) => {
         if (e.target.value === 'flickr') {

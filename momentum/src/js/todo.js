@@ -92,12 +92,14 @@ function todoApp() {
     [showBtn, hideBtn].forEach((btn) => {
         btn.addEventListener('click', () => {
             todoWrap.classList.toggle('active');
+            todoInput.value = '';
         });
     });
 
     todoWrap.addEventListener('click', (e) => {
         if (e.target.classList.contains('todo-wrapper')) {
             todoWrap.classList.toggle('active');
+            todoInput.value = '';
         }
     });
 }
