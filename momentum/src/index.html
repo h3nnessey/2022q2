@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <title>Momentum</title>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <header class="header">
+    <div class="player widget">
+      <div class="player-header">
+        <div class="audio-about">
+          <div class="audio-title"></div>
+          <div class="audio-subtitle">Ennio Morricone</div>
+        </div>
+        <div class="audio-counter"></div>
+      </div>
+
+      <div class="audio-time">
+        <div class="current-time"></div>
+        <div class="time-range-slider range-slider">
+          <input type="range" min="0" max="100" value="30" class="time-slider slider">
+          <div class="time-slider-thumb slider-thumb"></div>
+          <div class="time-progress progress"></div>
+      </div>
+        <div class="duration"></div>
+      </div>
+      <div class="player-controls">
+        <button class="play-prev player-icon"></button>
+        <button class="play player-icon"></button>
+        <button class="play-next player-icon"></button>
+        <div class="volume-controls">
+          <button class="volume-btn"></button>
+          <div class="volume-range-slider range-slider">
+            <input type="range" min="0" max="100" value="0" class="volume-slider slider">
+            <div class="volume-slider-thumb slider-thumb"></div>
+            <div class="volume-progress progress"></div>
+        </div>
+        </div>
+      </div>
+
+      <ul class="play-list"></ul>
+    </div>
+    <div class="weather widget">
+      <input type="text" class="city" value="Minsk" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time widget"></time>
+    <date class="date widget"></date>
+    <div class="greeting-container widget">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="Guest" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="settings-wrapper">
+        <div class="settings-сontainer">
+          <div class="settings">
+            <div class="settings-item">
+              <div class="settings-item__title lang-title">Language:</div>
+              <div class="settings-item__input">
+                <select class="lang">
+                  <option value="en">English</option>
+                  <option value="ru">Russian</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-item">
+              <div class="settings-item__title">
+                Background source:
+              </div>
+              <div class="settings-item__input bg-source-input">
+                <input type="radio" value="github" id="api-github" name="api" checked>
+                <label for="#api-github" class="active">GitHub</label>
+                <input type="radio" value="flickr" id="api-flickr" name="api">
+                <label for="#api-flickr">Flickr</label>
+                <input type="radio" value="unsplash" id="api-unsplash" name="api">
+                <label for="#api-unsplash">Unsplash</label>
+              </div>
+            </div>
+            <div class="settings-item">
+              <div class="settings-item__title">
+                Background tags:
+              </div>
+              <div class="settings-item__input">
+                <input type="text" id="bg-input" placeholder="Enter the tags separated by a space">
+                <button id="bg-btn">GET</button>
+              </div>
+            </div>
+            <div class="settings-item">
+              <div class="settings-item__title">
+                Show/Hide widgets:
+              </div>
+              <div class="settings-item__input widgets-controls">
+                <input type="checkbox" id="widgets-player" checked>
+                <label for="#widgets-player" class="active">Player</label>
+                <input type="checkbox" id="widgets-todo" checked>
+                <label for="#widgets-todo" class="active">ToDo</label>
+                <input type="checkbox" id="widgets-date" checked>
+                <label for="#widgets-date" class="active">Date</label>
+                <input type="checkbox" id="widgets-greeting" checked>
+                <label for="#widgets-greeting" class="active">Greeting</label>
+                <input type="checkbox" id="widgets-quotes" checked>
+                <label for="#widgets-quotes" class="active">Quote</label>
+                <input type="checkbox" id="widgets-weather" checked>
+                <label for="#widgets-weather" class="active">Weather</label>
+                <input type="checkbox" id="widgets-time" checked>
+                <label for="#widgets-time" class="active">Time</label>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="quotes-block widget">
+        <button class="change-quote"></button>
+        <div>
+          <div class="quote"></div>
+          <div class="author"></div>
+        </div>
+      </div>
+      <div class="todo-wrapper">
+        <div class="todo hide">
+          <button class="todo-hide"></button>
+          <ul class="todo-list">
+          </ul>
+          <div class="todo-controls">
+            <input type="text" class="todo-input" placeholder="">
+            <button class="todo-add-btn">Add</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+    <div class="footer-buttons">
+      <button class="settings-show"></button>
+      <button class="todo-show widget">ToDo</button>
+    </div>
+  </footer>
+</body>
+
+</html>
