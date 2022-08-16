@@ -515,8 +515,37 @@ body {
     border-radius: 5px;
     padding: 15px;
 }
+
+.settings-close {
+    width: 20px;
+    height: 20px;
+    align-self: flex-end;
+    outline: none;
+    border: none;
+    background: url(../assets/svg/close-1.svg) 50% 50% / cover no-repeat;
+    filter: invert(100%);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform opacity 0.3s ease-in-out;
+}
+
+.settings-close:hover {
+    opacity: 1;
+}
+
 .lang {
     margin-top: 6px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+}
+.lang option {
+    padding: 5px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
 }
 .settings-item {
     display: flex;
@@ -730,16 +759,14 @@ body {
 }
 
 .todo-hide {
-    width: 32px;
-    height: 32px;
-    margin: 10px 0;
-    flex: 1 0 auto;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 15px 0;
     align-self: flex-end;
     outline: none;
     border: none;
-    background: url(../assets/svg/plus-bold-svgrepo-com.svg) 50% 50% / cover no-repeat;
+    background: url(../assets/svg/close-1.svg) 50% 50% / cover no-repeat;
     filter: invert(100%);
-    transform: rotate(45deg);
     cursor: pointer;
     opacity: 0.8;
     transition: transform opacity 0.3s ease-in-out;
@@ -892,3 +919,5 @@ body {
         padding: 5px;
     }
 }
+
+

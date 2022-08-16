@@ -18,6 +18,7 @@ function settings() {
     const widgets = document.querySelectorAll('.widget');
     const bgInput = document.querySelector('#bg-input');
     const checkboxTitles = document.querySelectorAll('.checkbox-title');
+    const hideSettings = document.querySelector('.settings-close');
     const checkboxTranslation = {
         ru: ['Плеер', 'Список дел', 'Дата', 'Приветствие', 'Цитата дня', 'Погода', 'Время'],
         en: ['Player', 'ToDo', 'Date', 'Greeting', 'Quote', 'Weather', 'Time'],
@@ -161,6 +162,10 @@ function settings() {
     showSett.addEventListener('click', () => {
         settingsWrap.classList.toggle('active');
     });
+
+    hideSettings.addEventListener('click', () => {
+        settingsWrap.classList.toggle('active')
+    })
 
     settingsWrap.addEventListener('click', (e) => {
         if (e.target.classList.contains('settings-wrapper')) {
