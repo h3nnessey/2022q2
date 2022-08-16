@@ -43,7 +43,7 @@ function player() {
         audio.load();
         title.textContent = playList[songIndex].title;
         subtitle.textContent = playList[songIndex].subtitle;
-        counter.textContent = `#${songIndex + 1} of ${playList.length}`;
+        counter.textContent = `#${songIndex + 1} / ${playList.length}`;
         setCurrentSong(songIndex);
         playListElement.scrollTop =
             playListElement.children[songIndex].offsetTop - playListElement.offsetTop;

@@ -26,7 +26,7 @@
           <input type="range" min="0" max="100" value="30" class="time-slider slider">
           <div class="time-slider-thumb slider-thumb"></div>
           <div class="time-progress progress"></div>
-      </div>
+        </div>
         <div class="duration"></div>
       </div>
       <div class="player-controls">
@@ -39,7 +39,7 @@
             <input type="range" min="0" max="100" value="0" class="volume-slider slider">
             <div class="volume-slider-thumb slider-thumb"></div>
             <div class="volume-progress progress"></div>
-        </div>
+          </div>
         </div>
       </div>
 
@@ -88,12 +88,27 @@
                 Background source:
               </div>
               <div class="settings-item__input bg-source-input">
-                <input type="radio" value="github" id="api-github" name="api" checked>
-                <label for="#api-github" class="active">GitHub</label>
-                <input type="radio" value="flickr" id="api-flickr" name="api">
-                <label for="#api-flickr">Flickr</label>
-                <input type="radio" value="unsplash" id="api-unsplash" name="api">
-                <label for="#api-unsplash">Unsplash</label>
+                <div class="checkbox-group">
+                  <div class="radio-title">Github</div>
+                  <label for="api-github">
+                    <input class="checkbox-input" type="radio" value="github" id="api-github" name="api" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <div class="radio-title">Flickr</div>
+                  <label for="api-flickr">
+                    <input class="checkbox-input" type="radio" value="flickr" id="api-flickr" name="api">
+                    <div class="checkbox"></div>
+                  </label>
+                </div>
+                <div class="checkbox-group">
+                  <div class="radio-title">Unsplash</div>
+                  <label for="api-unsplash">
+                    <input class="checkbox-input" type="radio" value="unsplash" id="api-unsplash" name="api">
+                    <div class="checkbox"></div>
+                  </label>
+                </div>
               </div>
             </div>
             <div class="settings-item">
@@ -110,24 +125,59 @@
                 Show/Hide widgets:
               </div>
               <div class="settings-item__input widgets-controls">
-                <input type="checkbox" id="widgets-player" checked>
-                <label for="#widgets-player" class="active">Player</label>
-                <input type="checkbox" id="widgets-todo" checked>
-                <label for="#widgets-todo" class="active">ToDo</label>
-                <input type="checkbox" id="widgets-date" checked>
-                <label for="#widgets-date" class="active">Date</label>
-                <input type="checkbox" id="widgets-greeting" checked>
-                <label for="#widgets-greeting" class="active">Greeting</label>
-                <input type="checkbox" id="widgets-quotes" checked>
-                <label for="#widgets-quotes" class="active">Quote</label>
-                <input type="checkbox" id="widgets-weather" checked>
-                <label for="#widgets-weather" class="active">Weather</label>
-                <input type="checkbox" id="widgets-time" checked>
-                <label for="#widgets-time" class="active">Time</label>
+                <div class="checkbox-group">
+                  <label for="widgets-player">
+                    <input class="checkbox-input" type="checkbox" id="widgets-player" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Player</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-todo">
+                    <input class="checkbox-input" type="checkbox" id="widgets-todo" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">ToDo</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-date">
+                    <input class="checkbox-input" type="checkbox" id="widgets-date" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Date</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-greeting">
+                    <input class="checkbox-input" type="checkbox" id="widgets-greeting" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Greeting</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-quotes">
+                    <input class="checkbox-input" type="checkbox" id="widgets-quotes" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Quote</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-weather">
+                    <input class="checkbox-input" type="checkbox" id="widgets-weather" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Weather</div>
+                </div>
+                <div class="checkbox-group">
+                  <label for="widgets-time">
+                    <input class="checkbox-input" type="checkbox" id="widgets-time" checked>
+                    <div class="checkbox"></div>
+                  </label>
+                  <div class="checkbox-title">Time</div>
+                </div>
               </div>
             </div>
           </div>
-          
+
         </div>
       </div>
       <div class="quotes-block widget">
@@ -147,7 +197,7 @@
             <button class="todo-add-btn">Add</button>
           </div>
         </div>
-       
+
       </div>
     </div>
     <div class="footer-buttons">

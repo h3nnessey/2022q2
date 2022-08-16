@@ -27,7 +27,7 @@ function slider() {
     function flickr(tag) {
         const API_KEY = '9adeed85c1215f11b0aa26290ae7cc4b';
         const timeOfDay = getTimeOfDay();
-        tag = tag.replace(' ', ',');
+        tag = tag.trim().toLowerCase().replaceAll(' ', ',');
         const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${API_KEY}&tags=${
             tag ? tag : 'nature,' + timeOfDay
         }&tag_mode=all&extras=url_h&format=json&nojsoncallback=1&safe_search=1`;
@@ -49,7 +49,7 @@ function slider() {
     function unsplash(tag) {
         const API_KEY = 'LREbfIzYLJSYzv7HZBStb1P9QdY-k8kLbFsAxMoB2aA';
         const timeOfDay = getTimeOfDay();
-        tag = tag.replace(' ', '%20');
+        tag = tag.trim().toLowerCase().replaceAll(' ', '%20');
         const url = `https://api.unsplash.com/photos/random?query=${
             tag ? tag : 'nature%20' + timeOfDay
         }&client_id=${API_KEY}`;
