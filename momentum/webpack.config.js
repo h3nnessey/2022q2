@@ -18,7 +18,7 @@ module.exports = {
     },
     devServer: {
         open: true,
-        port: 8080,
+        port: 8280,
         client: {
             overlay: true,
             progress: true,

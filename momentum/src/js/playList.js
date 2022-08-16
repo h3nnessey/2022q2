@@ -36,12 +36,6 @@ const playList = [
         duration: '02:50',
     },
     {
-        title: 'Akim Apachev',
-        subtitle: 'Лето и арбалеты',
-        src: './assets/sounds/Akim Apachev - Лето и арбалеты.mp3',
-        duration: '02:32'
-    },
-    {
         title: 'lildeath, vierre cloud',
         subtitle: 'moment',
         src: './assets/sounds/lildeath, vierre cloud - moment.mp3',
@@ -58,12 +52,6 @@ const playList = [
         subtitle: 'Crimewave',
         src: './assets/sounds/Crystal Castles - Crimewave.mp3',
         duration: '02:54',
-    },
-    {
-        title: 'Abis, Signal',
-        subtitle: 'The Wall',
-        src: './assets/sounds/Abis, Signal, Tasha Baxter - The Wall.mp3',
-        duration: '05:40',
     },
 ];
 export default playList;

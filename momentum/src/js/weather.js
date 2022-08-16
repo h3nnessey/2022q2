@@ -26,7 +26,7 @@ function weather(props) {
     getWeather();
 
     function catchErr() {
-        weatherError.textContent = `Error! Cannot find weather for ${cityInput.value}.`;
+        weatherError.textContent = props.language === 'en' ? `Error! Cannot find weather for ${cityInput.value}.` : `Ошибка! Не могу найти погоду для ${cityInput.value}.`;
         weatherIco.className = 'weather-icon';
         temperature.textContent = '';
         weatherDesc.textContent = '';

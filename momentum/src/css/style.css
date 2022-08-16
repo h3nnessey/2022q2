@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Arial-MT';
-    src: url('../assets/fonts/Arial-MT.woff'); /* Путь к файлу со шрифтом */
+    src: url('../assets/fonts/Arial-MT.woff');
 }
 
 * {
@@ -21,26 +21,13 @@ body {
     height: 100%;
     width: 100%;
     padding: 20px;
-    min-width: 480px;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     color: #fff;
     text-align: center;
-    background: center/cover, rgba(0, 0, 0, 0.5);
+    background: center/cover, rgba(0, 0, 0, 0.6);
     background-blend-mode: multiply;
     transition: background-image 1s ease-in-out;
-}
-
-.loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgb(90, 72, 72);
-    z-index: 500;
-    width: 100%;
-    min-width: 100vw;
-    min-height: 100vh;
-    height: 100%;
 }
 
 .header {
@@ -62,8 +49,6 @@ body {
     align-items: flex-start;
     user-select: none;
 }
-
-
 
 .player-header {
     display: flex;
@@ -91,10 +76,11 @@ body {
 .audio-counter {
     align-self: flex-start;
     font-size: 14px;
-    color: grey;
+    color: #a5a5a5;
 }
 
 .audio-counter::first-letter {
+    font-size: 17px;
     color: rgba(255, 255, 255, 0.8);
 }
 
@@ -227,6 +213,7 @@ body {
     opacity: 0.8;
     cursor: pointer;
     transition: 0.3s;
+    color: #a5a5a5;
 }
 
 .audio-time {
@@ -257,10 +244,6 @@ body {
 
 .item-active::before {
     content: '\275A\275A';
-}
-
-.play-item {
-    color: grey;
 }
 
 .player-icon,
@@ -449,6 +432,36 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-top: 15px;
+}
+
+.links {
+    display: flex;
+    margin-left: 13px;
+}
+
+.link {
+    display: inline-block;
+    opacity: 0.7;
+    cursor: pointer;
+    filter: invert(100%);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.link:hover {
+    opacity: 1;
+}
+
+.github-link {
+    width: 32px;
+    height: 32px;
+    background: url(../assets/svg/github.svg) 50% 50% / cover no-repeat;
+}
+
+.rss-link {
+    width: 100px;
+    height: 32px;
+    background: url(../assets/svg/rs_school_js.svg) 50% 50% / contain no-repeat;
 }
 
 .settings-wrapper.active {
@@ -457,14 +470,16 @@ body {
 }
 
 .settings-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
     opacity: 0;
     visibility: hidden;
     transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    backdrop-filter: blur(5px);
 }
 
 .settings-сontainer {
@@ -475,7 +490,8 @@ body {
     max-width: 500px;
     flex-direction: column;
     align-items: flex-start;
-    /* max-height: 500px; */
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 7px;
     gap: 20px;
 }
 
@@ -483,16 +499,44 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* height: 300px; */
-    gap: 20px;
+    gap: 10px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.15);
     padding: 15px;
 }
 
+.settings-close {
+    width: 20px;
+    height: 20px;
+    align-self: flex-end;
+    outline: none;
+    border: none;
+    background: url(../assets/svg/close-1.svg) 50% 50% / cover no-repeat;
+    filter: invert(100%);
+    cursor: pointer;
+    opacity: 0.8;
+    transition: transform opacity 0.3s ease-in-out;
+}
+
+.settings-close:hover {
+    opacity: 1;
+}
+
+.lang {
+    margin-top: 6px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+}
+.lang option {
+    padding: 5px;
+    background-color: rgba(0,0,0,0.4);
+    color: #fff;
+}
 .settings-item {
     display: flex;
-    flex-wrap: wrap;
     align-items: flex-start;
     padding: 5px 0;
 }
@@ -501,31 +545,23 @@ body {
     text-align: left;
     font-size: 16px;
     line-height: 29px;
-    min-width: 150px;
+    width: 150px;
 }
 
 .settings-item__input {
     display: flex;
-    flex-wrap: wrap;
-    flex: 1;
+    flex-direction: column;
     gap: 10px 8px;
 }
 
-/* .settings-item__input input[type='radio'],
-.settings-item__input input[type='checkbox'] {
-    display: none;
-} */
-
-.settings-item__input label {
-    display: inline-block;
-    padding: 7px 10px;
-
-    border-radius: 5px;
-    cursor: pointer;
+.bg-tag-input {
+    flex-direction: row;
 }
 
-.settings-item__input label.active {
-    background-color: rgba(0, 0, 0, 0.3);
+.bg-source-input {
+    display: grid;
+    grid-template-columns: 150px 150px;
+    grid-template-rows: 1fr 1fr;
 }
 
 .settings-show {
@@ -564,11 +600,73 @@ body {
 #bg-btn {
     outline: none;
     border: none;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 5px 10px;
-    color: #fff;
     cursor: pointer;
+    width: 32px;
+    height: 32px;
+    background: url(../assets/svg/plus-bold-svgrepo-com.svg) 50% 50% / cover no-repeat;
+    filter: invert(100%);
+    opacity: 0.8;
+    transition: transform opacity 0.3s ease-in-out;
+}
+
+#bg-btn:hover {
+    opacity: 1;
+}
+
+#bg-btn:active {
+    transform: scale(1.1);
+}
+
+.widgets-controls {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 150px 150px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    background-color: rgb(114, 114, 114);
+    opacity: 0.8;
+    transition: 0.3s ease-in-out;
+}
+
+.checkbox:hover::before {
+    opacity: 1;
+}
+
+.checkbox-input:checked ~ .checkbox {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.checkbox-input:checked ~ .checkbox::before {
+    background-color: #fff;
+    transform: translateX(23px);
 }
 
 .change-quote {
@@ -578,8 +676,7 @@ body {
 
 .quote {
     min-height: 32px;
-    max-width: 950px;
-    word-break: break-all;
+    max-width: 850px;
     line-height: 22px;
     letter-spacing: 0.7px;
 }
@@ -591,12 +688,14 @@ body {
 .todo-wrapper {
     visibility: hidden;
     position: fixed;
+    z-index: 3;
     width: 100%;
     height: 100%;
     top: 0;
     right: 0;
     opacity: 0;
-    transition: opacity 0.3s ease-in-out, visivility 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
 }
 
 .todo-wrapper.active {
@@ -631,7 +730,6 @@ body {
     padding: 15px;
     max-height: 350px;
     width: 350px;
-    transition: 0.5s;
     border-radius: 5px;
 }
 
@@ -649,21 +747,21 @@ body {
 }
 
 .todo-hide {
-    width: 25px;
-    height: 25px;
-    margin: 5px 0;
-    flex: 1 0 auto;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px 15px 0;
     align-self: flex-end;
     outline: none;
     border: none;
-    background: url(../assets/svg/close.svg) 50% 50% / cover no-repeat;
+    background: url(../assets/svg/close-1.svg) 50% 50% / cover no-repeat;
     filter: invert(100%);
     cursor: pointer;
-    transition: transform 0.3s;
+    opacity: 0.8;
+    transition: transform opacity 0.3s ease-in-out;
 }
 
 .todo-hide:hover {
-    transform: rotate(360deg);
+    opacity: 1;
 }
 
 .todo-list {
@@ -682,22 +780,37 @@ body {
     display: flex;
     width: 100%;
     justify-content: space-between;
+    gap: 10px;
 }
 .todo-input {
     outline: none;
     border: none;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.3);
     padding: 5px;
+    border-radius: 5px;
     font-size: 16px;
+    color: #fff;
+    flex: 1 1 auto;
 }
 
 .todo-add-btn {
     outline: none;
     border: none;
-    font-size: 16px;
-    padding: 5px;
     cursor: pointer;
-    flex: 1 1 auto;
+    width: 32px;
+    height: 32px;
+    background: url(../assets/svg/plus-bold-svgrepo-com.svg) 50% 50% / cover no-repeat;
+    filter: invert(100%);
+    opacity: 0.8;
+    transition: transform opacity 0.3s ease-in-out;
+}
+
+.todo-add-btn:hover {
+    opacity: 1;
+}
+
+.todo-add-btn:active {
+    transform: scale(1.1);
 }
 
 .list-item {
@@ -774,10 +887,6 @@ body {
     }
 }
 
-input[type='radio']:checked + label {
-    font-weight: bold;
-}
-
 @media (max-width: 768px) {
     .time {
         min-height: 80px;
@@ -798,3 +907,5 @@ input[type='radio']:checked + label {
         padding: 5px;
     }
 }
+
+

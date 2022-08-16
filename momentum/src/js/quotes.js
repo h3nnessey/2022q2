@@ -10,7 +10,14 @@ function quotes(url) {
                 quote.textContent = data[currentQuote]['quote'];
                 author.textContent = data[currentQuote]['author'];
             })
-            .catch((err) => quote.textContent = 'Error was occurred while fetching quotes. Please, reload the page or click on btn again.');
+            .catch(
+                (err) =>
+                    (quote.textContent = `${
+                        url.includes('en')
+                            ? 'Error was occurred while fetching quote. Please, reload the page or click on refresh button.'
+                            : 'Произошла ошибка. Пожалуйста, перезагрузите страницу или нажмите кнопку обновления цитаты'
+                    }`)
+            );
     };
     setTimeout(getQuotes, 100);
 }

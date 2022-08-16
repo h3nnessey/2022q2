@@ -17,6 +17,12 @@ function settings() {
     const widgetsInput = document.querySelectorAll('.widgets-controls input');
     const widgets = document.querySelectorAll('.widget');
     const bgInput = document.querySelector('#bg-input');
+    const checkboxTitles = document.querySelectorAll('.checkbox-title');
+    const hideSettings = document.querySelector('.settings-close');
+    const checkboxTranslation = {
+        ru: ['Плеер', 'Список дел', 'Дата', 'Приветствие', 'Цитата дня', 'Погода', 'Время'],
+        en: ['Player', 'ToDo', 'Date', 'Greeting', 'Quote', 'Weather', 'Time'],
+    };
     let greetingTimer, dateTimer;
     const blocks = {
         'widgets-player': widgets[0],
@@ -73,12 +79,16 @@ function settings() {
         clearInterval(dateTimer);
         greeting(currentLang);
         date(currentLang);
+        if (currentLang === 'en' && cityInp.value === 'Минск') {
+            cityInp.value = cityTranslation[currentLang];
+        } else if (currentLang === 'ru' && cityInp.value === 'Minsk') {
+            cityInp.value = cityTranslation[currentLang];
+        }
         weather(weatherObj[currentLang]);
         quotes(`assets/quotes_${currentLang}.json`);
         setSettingsLanguage(currentLang);
         todoInp.placeholder = todoTranslation[langForm.value];
         nameInp.placeholder = nameTranslation[langForm.value];
-        // cityInp.value = cityTranslation[langForm.value];
         greetingTimer = setInterval(() => {
             greeting(currentLang);
         }, 1000);
@@ -100,7 +110,6 @@ function settings() {
     });
 
     window.addEventListener('load', () => {
-        hideLoader();
         if (localStorage.getItem('check')) {
             setChecked(localStorage.getItem('check'));
         }
@@ -115,7 +124,11 @@ function settings() {
             todoInp.placeholder = todoTranslation[selectedLang];
             nameInp.placeholder = nameTranslation[selectedLang];
             setSettingsLanguage(selectedLang);
-            // cityInp.value = cityTranslation[selectedLang];
+            if (selectedLang === 'en' && cityInp.value === 'Минск') {
+                cityInp.value = cityTranslation[selectedLang];
+            } else if (selectedLang === 'ru' && cityInp.value === 'Minsk') {
+                cityInp.value = cityTranslation[selectedLang];
+            }
             weather(weatherObj[selectedLang]);
             quotes(`assets/quotes_${selectedLang}.json`);
             greetingTimer = setInterval(() => {
@@ -132,8 +145,8 @@ function settings() {
             date(langForm.value);
             todoInp.placeholder = todoTranslation[langForm.value];
             nameInp.placeholder = nameTranslation[langForm.value];
-            // cityInp.value = cityTranslation[langForm.value];
-            setSettingsLanguage(langForm.value);
+            cityInp.value = cityTranslation[langForm.value];
+            setSettingsLanguage(langForm.value); // можно убрать
             weather(weatherObj[langForm.value]);
             quotes(`assets/quotes_${langForm.value}.json`);
             greetingTimer = setInterval(() => {
@@ -149,6 +162,10 @@ function settings() {
         settingsWrap.classList.toggle('active');
     });
 
+    hideSettings.addEventListener('click', () => {
+        settingsWrap.classList.toggle('active')
+    })
+
     settingsWrap.addEventListener('click', (e) => {
         if (e.target.classList.contains('settings-wrapper')) {
             settingsWrap.classList.toggle('active');
@@ -162,7 +179,10 @@ function settings() {
         langOptions.forEach((el, idx) => {
             el.textContent = optTranslation[lang][idx];
         });
-        bgInput.placeholder = bgTranslation[lang]
+        bgInput.placeholder = bgTranslation[lang];
+        checkboxTitles.forEach((title, idx) => {
+            title.textContent = checkboxTranslation[lang][idx];
+        });
     }
 
     function getChecked() {
@@ -183,11 +203,6 @@ function settings() {
                 ? blocks[el.id].classList.remove('hide-item')
                 : blocks[el.id].classList.add('hide-item');
         });
-    }
-
-    function hideLoader() {
-        document.querySelector('.loader').style.transition = 'visibility 0.5s';
-        document.querySelector('.loader').style.visibility = 'hidden';
     }
 
     function setLocalStorage() {
