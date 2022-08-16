@@ -110,7 +110,6 @@ function settings() {
     });
 
     window.addEventListener('load', () => {
-        hideLoader();
         if (localStorage.getItem('check')) {
             setChecked(localStorage.getItem('check'));
         }
@@ -204,11 +203,6 @@ function settings() {
                 ? blocks[el.id].classList.remove('hide-item')
                 : blocks[el.id].classList.add('hide-item');
         });
-    }
-
-    function hideLoader() {
-        document.querySelector('.loader').style.transition = 'visibility 0.5s';
-        document.querySelector('.loader').style.visibility = 'hidden';
     }
 
     function setLocalStorage() {
