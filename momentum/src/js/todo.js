@@ -17,11 +17,20 @@ function todoApp() {
     }
 
     function createTodo(todo, idx) {
-        return `<li class="list-item ${todo.completed ? 'checked' : ''}" id="${idx}">
-    <input type="checkbox" class="list-item-checkbox" ${todo.completed ? 'checked' : ''}>
-    <div class="list-item-description">${todo.description}</div>
-    <button class="list-item-delete"></button>
-</li>`;
+        return `
+        <li class="list-item ${todo.completed ? 'checked' : ''}" id="${idx}">
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" class="list-item-checkbox checkbox-input" ${
+                        todo.completed ? 'checked' : ''
+                    }>
+                    <div class="checkbox"></div>
+                </label>
+            </div>
+            <div class="list-item-description">${todo.description}</div>
+        <button class="list-item-delete"></button>
+    </li>
+    `;
     }
 
     function setTodos() {
@@ -37,7 +46,7 @@ function todoApp() {
                 checkbox.addEventListener('click', () => {
                     completeTodo(item.id);
                 });
-                const delBtn = item.querySelector('button');
+                const delBtn = item.querySelector('.list-item-delete');
                 delBtn.addEventListener('click', () => {
                     deleteTodo(item.id);
                 });

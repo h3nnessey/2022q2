@@ -522,13 +522,14 @@ body {
 }
 
 .lang {
-    margin-top: 6px;
+    margin-top: 2px;
     outline: none;
     border: none;
     border-radius: 5px;
     padding: 5px;
     background-color: rgba(0,0,0,0.4);
     color: #fff;
+    cursor: pointer;
 }
 .lang option {
     padding: 5px;
@@ -597,6 +598,10 @@ body {
     color: grey;
 }
 
+#bg-input:disabled {
+    cursor: not-allowed;
+}
+
 #bg-btn {
     outline: none;
     border: none;
@@ -653,7 +658,7 @@ body {
     height: 18px;
     background-color: rgb(114, 114, 114);
     opacity: 0.8;
-    transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out; 
 }
 
 .checkbox:hover::before {
@@ -840,11 +845,11 @@ body {
     outline: none;
     border: none;
     cursor: pointer;
-    min-width: 20px;
-    height: 20px;
+    min-width: 18px;
+    height: 18px;
     background: url(../assets/svg/bucket.svg) 50% 50% / cover no-repeat;
     filter: invert(100%);
-    opacity: 0.5;
+    opacity: 0.7;
     transition: opacity 0.3s;
 }
 
@@ -854,6 +859,21 @@ body {
 
 .list-item-checkbox {
     cursor: pointer;
+}
+
+.list-item .checkbox {
+    width: 40px;
+    height: 21px;
+}
+
+.list-item .checkbox::before {
+    top: 3px;
+    width: 14px;
+    height: 14px;
+}
+
+.list-item .checkbox-input:checked ~ .checkbox::before {
+    transform: translateX(16px);
 }
 
 .list-item.checked {

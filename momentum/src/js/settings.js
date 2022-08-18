@@ -19,6 +19,7 @@ function settings() {
     const bgInput = document.querySelector('#bg-input');
     const checkboxTitles = document.querySelectorAll('.checkbox-title');
     const hideSettings = document.querySelector('.settings-close');
+    const todoBtn = document.querySelector('.todo-show');
     const checkboxTranslation = {
         ru: ['Плеер', 'Список дел', 'Дата', 'Приветствие', 'Цитата дня', 'Погода', 'Время'],
         en: ['Player', 'ToDo', 'Date', 'Greeting', 'Quote', 'Weather', 'Time'],
@@ -70,6 +71,11 @@ function settings() {
     const bgTranslation = {
         ru: 'Введите теги через пробел',
         en: 'Enter the tags separated by a space',
+    };
+
+    const todoBtnTranslation = {
+        ru: 'Список дел',
+        en: 'ToDo',
     };
 
     langForm.addEventListener('change', (e) => {
@@ -143,10 +149,6 @@ function settings() {
             clearInterval(dateTimer);
             greeting(langForm.value);
             date(langForm.value);
-            todoInp.placeholder = todoTranslation[langForm.value];
-            nameInp.placeholder = nameTranslation[langForm.value];
-            cityInp.value = cityTranslation[langForm.value];
-            setSettingsLanguage(langForm.value); // можно убрать
             weather(weatherObj[langForm.value]);
             quotes(`assets/quotes_${langForm.value}.json`);
             greetingTimer = setInterval(() => {
@@ -163,8 +165,8 @@ function settings() {
     });
 
     hideSettings.addEventListener('click', () => {
-        settingsWrap.classList.toggle('active')
-    })
+        settingsWrap.classList.toggle('active');
+    });
 
     settingsWrap.addEventListener('click', (e) => {
         if (e.target.classList.contains('settings-wrapper')) {
@@ -183,6 +185,7 @@ function settings() {
         checkboxTitles.forEach((title, idx) => {
             title.textContent = checkboxTranslation[lang][idx];
         });
+        todoBtn.textContent = todoBtnTranslation[lang];
     }
 
     function getChecked() {
