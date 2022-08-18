@@ -756,6 +756,7 @@ body {
     height: 20px;
     margin: 0 5px 15px 0;
     align-self: flex-end;
+    flex-shrink: 0;
     outline: none;
     border: none;
     background: url(../assets/svg/close-1.svg) 50% 50% / cover no-repeat;
